@@ -112,7 +112,18 @@ gulp.task( 'copyComposer', function() {
 	return merge(hybridcore, tgmpa);
 }); 
 
+/**
+ * Task: Copy Src
+ *
+ * Copy all files from SRC folder.
+ */
 
+gulp.task( 'copySRC', function() {
+	
+	gulp.src( './src/**/*.*' )
+		.pipe( gulp.dest ( './build/'));
+	
+}); 
 
 
  /**
@@ -121,6 +132,6 @@ gulp.task( 'copyComposer', function() {
   * Watches for file changes and runs specific tasks.
   */
 
- gulp.task( 'default', [ 'copyBower', 'copyComposer' ], function () {
+ gulp.task( 'default', [ 'copyBower', 'copyComposer', 'copySRC' ], function () {
  
  });
