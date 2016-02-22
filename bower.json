@@ -1,0 +1,19 @@
+{
+  "name": "rock",
+  "description": "WordPress Rock Theme Framework",
+  "main": "index.js",
+  "authors": [
+    "Ryan Miller <ryansmiller@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/ryansmiller/rock",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

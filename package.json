@@ -3,19 +3,29 @@
   "version": "1.0.0",
   "description": "WordPress Rock Theme Framework",
   "main": "index.js",
-  "dependencies": {},
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ryansmiller/rock.git"
+    "url": "git+https://github.com/spinner903/rock.git"
   },
-  "author": "",
+  "author": "Ryan Miller",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ryansmiller/rock/issues"
+    "url": "https://github.com/spinner903/rock/issues"
   },
-  "homepage": "https://github.com/ryansmiller/rock#readme"
+  "homepage": "https://github.com/spinner903/rock#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.5.2",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^2.2.0",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^1.1.0",
+    "gulp-uglifycss": "^1.0.4",
+    "merge-stream": "^1.0.0"
+  }
 }

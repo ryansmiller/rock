@@ -1,0 +1,6 @@
+{
+  "require": {
+    "justintadlock/hybrid-core"		: "3.*",
+    "tgmpa/tgm-plugin-activation"	: "2.5.2"	
+  }
+}
