@@ -1,0 +1,21 @@
+{
+  "name": "rock",
+  "version": "1.0.0",
+  "description": "WordPress Rock Theme Framework",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryansmiller/rock.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryansmiller/rock/issues"
+  },
+  "homepage": "https://github.com/ryansmiller/rock#readme"
+}
