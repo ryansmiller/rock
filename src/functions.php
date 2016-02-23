@@ -197,6 +197,13 @@ function rock_register_required_plugins() {
 			'slug'      => 'wordpress-seo',
 			'required'  => true,
 		),
+
+		array(
+			'name'      		=> 'Kirki',
+			'slug'      		=> 'kirki',
+			'required'  		=> true,
+			'force_activation'	=> true,
+		),
 		
 	);
 
