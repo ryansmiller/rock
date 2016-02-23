@@ -7,6 +7,10 @@
  * @package Rock
  */
 
+// Launch the Hybrid Core framework.
+require_once( trailingslashit( get_template_directory() ) . 'library/hybrid.php' );
+new Hybrid();
+
 if ( ! function_exists( 'rock_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -116,9 +120,11 @@ add_action( 'widgets_init', 'rock_widgets_init' );
 function rock_scripts() {
 	wp_enqueue_style( 'rock-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'rock-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.6', 'all' );
 
-	wp_enqueue_script( 'rock-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'jquery', get_template_directory_uri() . '/js/jquery.min.js', array(), '2.2.0', false );
+
+	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '3.3.6', true ); 
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -150,3 +156,49 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+
+/**
+ * Include the TGM_Plugin_Activation class.
+ */
+require_once get_template_directory() . '/class/class-tgm-plugin-activation.php';
+
+add_action( 'tgmpa_register', 'rock_register_required_plugins' );
+
+/**
+ * Register the required plugins for this theme.
+ *
+ * This function is hooked into tgmpa_init, which is fired within the
+ * TGM_Plugin_Activation class constructor.
+ */
+function rock_register_required_plugins() {
+	/*
+	 * Array of plugin arrays. Required keys are name and slug.
+	 * If the source is NOT from the .org repo, then source is also required.
+	 */
+	$plugins = array(
+
+		array(
+			'name'               => 'Beaver Builder', // The plugin name.
+			'slug'               => 'bb-plugin', // The plugin slug (typically the folder name).
+			'source'             => get_template_directory() . '/inc/plugins/bb-plugin.zip', // The plugin source.
+			'required'           => true, // If false, the plugin is only 'recommended' instead of required.
+			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+			'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+			'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+			'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
+		),
+
+
+
+		array(
+			'name'      => 'Yoast SEO',
+			'slug'      => 'wordpress-seo',
+			'required'  => true,
+		),
+		
+	);
+
+	tgmpa( $plugins );
+}

@@ -77,11 +77,14 @@ var merge 			= require('merge-stream');
  *		2. Get TGM Plugin Activator and copy to build.
  */
 gulp.task('copyBower', function() {
-	var bootstrapCSS = gulp.src('./bower_components/bootstrap/dist/css/bootstrap.*css')
+	var bootstrapCSS = gulp.src('./bower_components/bootstrap/dist/css/**/*.*')
 		.pipe(gulp.dest('./build/css/'));
 
-	var bootstrapJS = gulp.src('./bower_components/bootstrap/dist/js/bootstrap.*js')
+	var bootstrapJS = gulp.src('./bower_components/bootstrap/dist/js/**/*.*')
 		.pipe(gulp.dest('./build/js/'));
+
+	var jquery = gulp.src('./bower_components/jquery/dist/**/*.*')
+		.pipe(gulp.dest('./build/js/'));	
 
 	return merge (bootstrapCSS, bootstrapJS);
 
