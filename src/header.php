@@ -22,7 +22,8 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'rock' ); ?></a>
+	
+	<a id="skippy" class="sr-only sr-only-focusable" href="#content"><div class="container"><span class="skiplink-text"><?php esc_html_e( 'Skip to content', 'rock' ); ?></span></div></a>
 
 	<header id="masthead" class="site-header" role="banner">
 		<div class="site-branding">
