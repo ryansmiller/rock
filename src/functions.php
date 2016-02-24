@@ -157,6 +157,11 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
+/**
+ * Register Custom Nav Menu Walker
+ */
+require_once get_template_directory() . '/class/wp_bootstrap_navwalker.php';
+
 
 /**
  * Include the TGM_Plugin_Activation class.
