@@ -112,7 +112,10 @@ gulp.task( 'copyComposer', function() {
 	var tgmpa = gulp.src( './vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php' )
 		.pipe( gulp.dest( './build/class/'));
 
-	return merge(hybridcore, tgmpa);
+	var kirki = gulp.src( './vendor/kirki/**/*.*' )
+		.pipe( gulp.dest( './build/inc/'));	
+
+	return merge(hybridcore, tgmpa, kirki);
 }); 
 
 /**

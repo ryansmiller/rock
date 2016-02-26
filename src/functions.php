@@ -48,7 +48,8 @@ function rock_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary', 'rock' ),
+		'primary' 	=> esc_html__( 'Primary', 'rock' ),
+		'secondary' => esc_html__( 'Secondary', 'rock' ),
 	) );
 
 	/*
@@ -156,6 +157,12 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Load Kirki.
+ */
+include_once( dirname( __FILE__ ) . '/inc/kirki/kirki.php' );
+
 
 /**
  * Register Custom Nav Menu Walker

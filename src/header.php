@@ -27,7 +27,7 @@
 		<?php wp_head(); ?>
 	</head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
 	<!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -37,6 +37,8 @@
 
 	<style type="text/css">
 
+	
+/*
 	#masthead {
 		box-sizing: border-box;
 
@@ -44,7 +46,7 @@
 
 
 	.site-title {
-		width: 255px;
+		width: 300px;
 		position: relative;
 		left: 50%; 
 	    -webkit-transform: translate(-50%,0);
@@ -58,30 +60,73 @@
 		display: block;
 		vertical-align: middle;
 		line-height: 1em;
+		font-size: 20px;
 	}
 
+
+	.navbar-nav {
+		float: none !important;
+		text-align: center;
+		vertical-align: middle;
+		margin: -50px;
+		margin-left: 30px;
+		margin-right: 30px;
+	}
+
+	.navbar-nav>li {
+		display: inline-block;
+		float: none !important;
+	}
+
+	.navbar-nav>li:nth-child(3) {
+		margin-right: 180px;
+	}
+
+	.navbar-nav>li:nth-child(4) {
+		margin-left: 180px;
+	}
+
+	.site-nav-wrapper {
+		margin: 20px 30px;
+	}
+	*/
 
 
 	</style>
 
 	<header id="masthead" class="navbar navbar-static-top" role="banner" itemscope itemtype="https://schema.org/WPHeader">
 
-		<h1 class="site-title" itemscope itemtype="https://schema.org/Organization"><a title="<?php bloginfo( 'name' ); ?> home page" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><span itemprop="name"><?php bloginfo( 'name' ); ?></span></a></h1>
+		<div class="site-nav-wrapper">
 
-		<nav id="nav-primary" class="navbar" role="navigation" itemscope="" itemtype="https://schema.org/SiteNavigationElement">
+			<h1 class="site-title" itemscope itemtype="https://schema.org/Organization"><a title="<?php bloginfo( 'name' ); ?> home page" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><span itemprop="name"><?php bloginfo( 'name' ); ?></span></a></h1>
 
-			<?php wp_nav_menu( 
-				array( 
-					'theme_location' 	=> 'primary', 
-					'menu_id' 			=> 'primary-menu', 
-					'menu_class' 		=> 'nav navbar-nav', 
-					'container' 		=> 'ul',
-					'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-            		'walker'            => new wp_bootstrap_navwalker() 
-				) 
-			); ?>
+			<nav id="nav-primary" class="navbar" role="navigation" itemscope="" itemtype="https://schema.org/SiteNavigationElement">
 
-		</nav>
+				<?php wp_nav_menu( 
+					array( 
+						'theme_location' 	=> 'primary', 
+						'menu_id' 			=> 'primary-menu', 
+						'menu_class' 		=> 'nav navbar-nav', 
+						'container' 		=> 'ul',
+						'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+	            		'walker'            => new wp_bootstrap_navwalker() 
+					) 
+				); ?>
+
+				<?php wp_nav_menu( 
+					array( 
+						'theme_location' 	=> 'secondary', 
+						'menu_id' 			=> 'secondary-menu', 
+						'menu_class' 		=> 'nav navbar-nav', 
+						'container' 		=> 'ul',
+						'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+	            		'walker'            => new wp_bootstrap_navwalker() 
+					) 
+				); ?>
+
+			</nav>
+
+		</div>
 
 	</header><!-- #masthead -->
 
