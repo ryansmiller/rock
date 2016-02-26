@@ -26,6 +26,12 @@ function rock_customize_preview_js() {
 add_action( 'customize_preview_init', 'rock_customize_preview_js' );
 
 
+
+
+
+
+
+
 Kirki::add_section( 'test', array(
     'title'          => __( 'Test' ),
     'description'    => __( 'Add custom CSS here' ),
@@ -50,3 +56,25 @@ Kirki::add_field( 'rock', array(
     'priority' => 10,
     'default'  => 'ryan',
 ) );
+
+
+Kirki::add_field( 'rock', array(
+    'settings' => 'new-checkbox',
+    'label'    => __( 'My checkbox', 'rock' ),
+    'section'  => 'test',
+    'type'     => 'checkbox',
+    'priority' => 13,
+    'default'  => '1',
+) );
+
+
+
+Kirki::add_field( '', array(
+    'type'        => 'custom',
+    'settings'    => 'custom_demo',
+    'label'       => __( 'This is the label', 'kirki' ),
+    'description' => __( 'This is the control description', 'kirki' ),
+    'section'     => 'test',
+    'priority'    => 12,
+) );
+
