@@ -113,7 +113,7 @@ gulp.task( 'copyComposer', function() {
 		.pipe( gulp.dest( './build/class/'));
 
 	var kirki = gulp.src( './vendor/kirki/**/*.*' )
-		.pipe( gulp.dest( './build/inc/'));	
+		.pipe( gulp.dest( './build/inc/kirki/'));	
 
 	return merge(hybridcore, tgmpa, kirki);
 }); 

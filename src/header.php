@@ -94,7 +94,7 @@
 
 	</style>
 
-	<header id="masthead" class="navbar navbar-static-top" role="banner" itemscope itemtype="https://schema.org/WPHeader">
+	<header id="masthead" class="navbar navbar-static-top <?php echo Kirki::get_option( 'rock', 'new-class' ); ?>" role="banner" itemscope itemtype="https://schema.org/WPHeader">
 
 		<div class="site-nav-wrapper">
 
