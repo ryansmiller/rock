@@ -57,9 +57,9 @@ Kirki::add_section( 'header_layout', array(
 Kirki::add_field( 'rock', array(
     'type'        => 'radio',
     'settings'    => 'header_container',
-    'label'       => __( 'Header Color', 'rock' ),
-    'description' => __( 'Default, dark, or custom colors.', 'rock' ),
-    'section'     => 'header_container',
+    'label'       => __( 'Header Container', 'rock' ),
+    'description' => __( 'Responsive fixed width or full-width container.', 'rock' ),
+    'section'     => 'header_layout',
     'default'     => 'container',
     'priority'    => 10,
     'choices'     => array(
@@ -96,7 +96,7 @@ Kirki::add_field( 'rock', array(
     'label'       => __( 'Header Position', 'rock' ),
     'description' => __( 'Either static or fixed positioning.', 'rock' ),
     'section'     => 'header_layout',
-    'default'     => 'static',
+    'default'     => 'static-top',
     'priority'    => 20,
     'choices'     => array(
         'static-top'   	=> __( 'Static', 'rock' ),
