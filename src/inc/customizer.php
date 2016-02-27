@@ -84,7 +84,7 @@ Kirki::add_field( 'rock', array(
     'priority'    => 20,
     'choices'     => array(
         'static-top'   	=> __( 'Static', 'rock' ),
-        'fixed' 		=> __( 'Fixed', 'rock' ),
+        'fixed-top' 		=> __( 'Fixed', 'rock' ),
     ),
 ) );
 
