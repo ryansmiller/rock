@@ -113,10 +113,10 @@
 
 	</style>
 
-	<header id="masthead" class="navbar navbar-static-top navbar-<?php echo Kirki::get_option( 'rock', 'header_layout' ); ?> navbar-<?php echo Kirki::get_option( 'rock', 'header_position' ); ?>" role="banner" itemscope itemtype="https://schema.org/WPHeader">
+	<header id="masthead" class="navbar navbar-<?php echo Kirki::get_option( 'rock', 'header_layout' ); ?> navbar-<?php echo Kirki::get_option( 'rock', 'header_position' ); ?> navbar-<?php echo Kirki::get_option( 'rock', 'header_color' ); ?>" role="banner" itemscope itemtype="https://schema.org/WPHeader">
 
-		<div class="site-nav-wrapper">
-
+		<div class="<?php echo Kirki::get_option( 'rock', 'header_container' ); ?>">
+		
 			<h1 class="site-title" itemscope itemtype="https://schema.org/Organization"><a title="<?php bloginfo( 'name' ); ?> home page" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><span itemprop="name"><?php bloginfo( 'name' ); ?></span></a></h1>
 
 			<nav id="nav-primary" class="navbar" role="navigation" itemscope="" itemtype="https://schema.org/SiteNavigationElement">

@@ -54,6 +54,22 @@ Kirki::add_section( 'header_layout', array(
  * Fields: Header
 */
 
+Kirki::add_field( 'rock', array(
+    'type'        => 'radio',
+    'settings'    => 'header_container',
+    'label'       => __( 'Header Color', 'rock' ),
+    'description' => __( 'Default, dark, or custom colors.', 'rock' ),
+    'section'     => 'header_container',
+    'default'     => 'container',
+    'priority'    => 10,
+    'choices'     => array(
+        'container'   		=> __( 'Responsive Fixed Container', 'rock' ),
+        'container-fluid' 	=> __( 'Full-width Container', 'rock' ),
+        
+    ),
+) );
+
+
 
 Kirki::add_field( 'rock', array(
     'type'        => 'radio',
@@ -62,7 +78,7 @@ Kirki::add_field( 'rock', array(
     'description' => __( 'Basic layouts for site header.', 'rock' ),
     'section'     => 'header_layout',
     'default'     => 'one-row-align-left',
-    'priority'    => 10,
+    'priority'    => 12,
     'choices'     => array(
         'one-row-align-left'   		=> __( 'One Row / Align Left', 'rock' ),
         'one-row-align-left-right' 	=> __( 'One Row / Align Left and Right', 'rock' ),
@@ -88,6 +104,20 @@ Kirki::add_field( 'rock', array(
     ),
 ) );
 
+Kirki::add_field( 'rock', array(
+    'type'        => 'radio',
+    'settings'    => 'header_color',
+    'label'       => __( 'Header Color', 'rock' ),
+    'description' => __( 'Default, dark, or custom colors.', 'rock' ),
+    'section'     => 'header_layout',
+    'default'     => 'default',
+    'priority'    => 30,
+    'choices'     => array(
+        'default'   	=> __( 'Light', 'rock' ),
+        'inverse' 		=> __( 'Dark', 'rock' ),
+        'transparent'	=> __( 'Transparent', 'rock' ),
+    ),
+) );
 
 
 
