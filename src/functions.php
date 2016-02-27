@@ -158,10 +158,7 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
-/**
- * Load Kirki.
- */
-include_once( dirname( __FILE__ ) . '/inc/kirki/kirki.php' );
+
 
 
 /**

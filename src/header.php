@@ -91,10 +91,29 @@
 	}
 	*/
 
+	.navbar-one-row-align-left
+	.navbar-one-row-align-left-right
+	.navbar-one-row-align-right
+	.navbar-one-row-align-center
+	.navbar-one-row-align-center-left-right
+	.navbar-two-row-align-left
+	.navbar-two-row-align-center
+
+	.navbar-static
+	.navbar-fixed
+
+	.navbar-background-white
+	.navbar-background-black
+	.navbar-background-color
+
+	.navbar-background-transparent
+
+	.navbar-background-opacity
+
 
 	</style>
 
-	<header id="masthead" class="navbar navbar-static-top <?php echo Kirki::get_option( 'rock', 'new-class' ); ?>" role="banner" itemscope itemtype="https://schema.org/WPHeader">
+	<header id="masthead" class="navbar navbar-static-top navbar-<?php echo Kirki::get_option( 'rock', 'header_layout' ); ?> navbar-<?php echo Kirki::get_option( 'rock', 'header_position' ); ?>" role="banner" itemscope itemtype="https://schema.org/WPHeader">
 
 		<div class="site-nav-wrapper">
 
