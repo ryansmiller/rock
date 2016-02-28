@@ -19,3 +19,133 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 */
 
 
+/*
+ * Header: Navigation Layouts
+ *
+ */
+
+#masthead.navbar {
+	margin-bottom: 0;
+}
+
+.navbar h1 {
+	margin: 0;
+}
+
+.navbar {
+	font-family: "Proxima Nova Extra Condensed";
+	text-transform: uppercase;
+	font-weight: 300;
+	font-size: 1.5em;
+}
+
+.navbar .fa {
+	font-size: 1em;
+}
+
+.navbar.navbar-absolute-top {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+}
+
+.admin-bar .navbar.navbar-absolute-top {
+	top: 32px;
+}
+
+.navbar-transparent.navbar-absolute-top .navbar-nav>li>a,
+.navbar-transparent.navbar-absolute-top .navbar-brand a {
+	color: #fff;
+}
+
+
+
+.navbar-one-row-align-left {}
+
+.navbar-one-row-align-left-right #secondary-menu.navbar-nav {
+	float: right !important;
+	margin-right: -15px
+}
+
+.navbar-one-row-align-right #nav-primary {
+	float: right !important;
+	margin-right: -15px
+}
+
+
+
+
+.navbar-one-row-align-center .navbar-header {
+	width: 300px;
+	z-index: 1001;
+	position: absolute;
+	left: 50%;
+	-webkit-transform: translate(-50%, 0);
+	-moz-transform: translate(-50%, 0);
+	-ms-transform: translate(-50%, 0);
+	-o-transform: translate(-50%, 0);
+	transform: translate(-50%, 0);
+	text-align: center;
+}
+
+.navbar-one-row-align-center .navbar-brand {
+	float: none;
+}
+
+.navbar-one-row-align-center #primary-menu.navbar-nav {
+	float: left;
+}
+.navbar-one-row-align-center #secondary-menu.navbar-nav {
+	float: right;
+}
+
+
+
+.navbar-one-row-align-center-left-right {}
+
+.navbar-two-row-align-left .navbar-header {
+	float: none;
+}
+
+.navbar-two-row-align-left nav {
+	margin-left: -15px !important;
+}
+
+.navbar-two-row-align-left-right .navbar-header {
+	float: none;
+}
+
+.navbar-two-row-align-left-right nav {
+	margin-left: -15px !important;
+}
+
+.navbar-two-row-align-left-right #secondary-menu.navbar-nav {
+	float: right !important;
+	margin-right: -15px
+}
+
+.navbar-two-row-align-center .navbar-header,
+.navbar-two-row-align-center .navbar-brand,
+.navbar-two-row-align-center nav {
+	text-align: center;
+	margin: 0 auto;
+	float: none;
+}
+
+.navbar-two-row-align-center .navbar-nav {
+	float: none;
+	display: inline-block;
+}
+
+.navbar-static
+.navbar-fixed
+
+.navbar-background-white
+.navbar-background-black
+.navbar-background-color
+
+.navbar-background-transparent
+
+.navbar-background-opacity

@@ -36,15 +36,22 @@ Kirki::add_config( 'rock', array(
 ) );
 
 
+
+
 /**
  * Panels and Sections: Header
 */
 
+Kirki::add_panel( 'header', array(
+    'priority'    => 10,
+    'title'       => __( 'Header', 'textdomain' ),
+    'description' => __( 'Settings for site header.', 'textdomain' ),
+) );
 
 Kirki::add_section( 'header_layout', array(
     'title'          => __( 'Header Layout' ),
     'description'    => __( 'The layout structure of your site header.' ),
-    'panel'          => '', // Not typically needed.
+    'panel'          => 'header', // Not typically needed.
     'priority'       => 10,
     'capability'     => 'edit_theme_options',
     'theme_supports' => '', // Rarely needed.
@@ -53,6 +60,8 @@ Kirki::add_section( 'header_layout', array(
 /**
  * Fields: Header
 */
+
+
 
 Kirki::add_field( 'rock', array(
     'type'        => 'radio',
@@ -86,6 +95,7 @@ Kirki::add_field( 'rock', array(
         'one-row-align-center'		=> __( 'One Row / Align Center', 'rock' ),
         'one-row-align-center-left-right'	=> __( 'One Row / Align Center, Left, and Right', 'rock' ),
         'two-row-align-left'		=> __( 'Two Row / Align Left', 'rock' ),
+        'two-row-align-left-right'  => __( 'Two Row / Align Left and Right', 'rock' ),
         'two-row-align-center'		=> __( 'Two Row / Align Center', 'rock' ),
     ),
 ) );
@@ -101,6 +111,7 @@ Kirki::add_field( 'rock', array(
     'choices'     => array(
         'static-top'   	=> __( 'Static', 'rock' ),
         'fixed-top' 		=> __( 'Fixed', 'rock' ),
+        'absolute-top'  => __( 'Absolute', 'rock' ),
     ),
 ) );
 
@@ -118,6 +129,8 @@ Kirki::add_field( 'rock', array(
         'transparent'	=> __( 'Transparent', 'rock' ),
     ),
 ) );
+
+
 
 
 
