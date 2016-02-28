@@ -26,13 +26,14 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 #masthead.navbar {
 	margin-bottom: 0;
+	border-radius: 0px;
 }
 
 .navbar h1 {
 	margin: 0;
 }
 
-.navbar {
+.navbar a {
 	font-family: "Proxima Nova Extra Condensed";
 	text-transform: uppercase;
 	font-weight: 300;
@@ -139,13 +140,5 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 	display: inline-block;
 }
 
-.navbar-static
-.navbar-fixed
-
-.navbar-background-white
-.navbar-background-black
-.navbar-background-color
-
-.navbar-background-transparent
 
 .navbar-background-opacity

@@ -34,7 +34,7 @@
 
 <div id="page" class="site">
 
-	<header id="masthead" class="navbar navbar-<?php echo Kirki::get_option( 'rock', 'header_layout' ); ?> navbar-<?php echo Kirki::get_option( 'rock', 'header_position' ); ?> navbar-<?php echo Kirki::get_option( 'rock', 'header_color' ); ?>" role="banner" itemscope itemtype="https://schema.org/WPHeader">
+	<header id="masthead" class="navbar navbar-<?php echo Kirki::get_option( 'rock', 'header_layout' ); ?> navbar-<?php echo Kirki::get_option( 'rock', 'header_position' ); ?> " role="banner" itemscope itemtype="https://schema.org/WPHeader" style="background-color: rgba(<?php echo Kirki::get_option('rock','header_color'); ?>,<?php echo Kirki::get_option('rock','header_opacity');?>) !important;">
 
 		<div class="<?php echo Kirki::get_option( 'rock', 'header_container' ); ?>">
 		

@@ -57,6 +57,16 @@ Kirki::add_section( 'header_layout', array(
     'theme_supports' => '', // Rarely needed.
 ) );
 
+Kirki::add_section( 'header_colors', array(
+    'title'          => __( 'Header Colors' ),
+    'description'    => __( 'The colors of your site header.' ),
+    'panel'          => 'header', // Not typically needed.
+    'priority'       => 20,
+    'capability'     => 'edit_theme_options',
+    'theme_supports' => '', // Rarely needed.
+) );
+
+
 /**
  * Fields: Header
 */
@@ -115,27 +125,36 @@ Kirki::add_field( 'rock', array(
     ),
 ) );
 
+
+
 Kirki::add_field( 'rock', array(
     'type'        => 'radio',
     'settings'    => 'header_color',
     'label'       => __( 'Header Color', 'rock' ),
     'description' => __( 'Default, dark, or custom colors.', 'rock' ),
-    'section'     => 'header_layout',
-    'default'     => 'default',
-    'priority'    => 30,
+    'section'     => 'header_colors',
+    'default'     => '255,255,255',
+    'priority'    => 10,
     'choices'     => array(
-        'default'   	=> __( 'Light', 'rock' ),
-        'inverse' 		=> __( 'Dark', 'rock' ),
-        'transparent'	=> __( 'Transparent', 'rock' ),
+        '255,255,255'     => __( 'White', 'rock' ),
+        '0,0,0' 		  => __( 'Black', 'rock' ),
     ),
 ) );
 
-
-
-
-
-
-
+Kirki::add_field( 'rock', array(
+    'type'        => 'slider',
+    'settings'    => 'header_opacity',
+    'label'       => __( 'Header Opacity', 'rock' ),
+    'description' => __( 'The level of transparency for the background color. 100 is fully opaque. 0 is fully transparent.', 'rock' ),
+    'section'     => 'header_colors',
+    'default'     => 1,
+    'priority'    => 20,
+    'choices'     => array(
+        'min'    => 0,
+        'max'    => 1,
+        'step'   => 0.01,
+    ),
+) );
 
 
 
