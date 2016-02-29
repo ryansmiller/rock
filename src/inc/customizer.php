@@ -104,14 +104,17 @@ Kirki::add_section( 'header_spacing', array(
  * Panels and Sections: Social Media
 */
 
+
+
 Kirki::add_section( 'social_media', array(
     'title'          => __( 'Social Media' ),
     'description'    => __( 'Links to social media accounts.' ),
     'panel'          => '', // Not typically needed.
-    'priority'       => 30,
+    'priority'       => 10,
     'capability'     => 'edit_theme_options',
     'theme_supports' => '', // Rarely needed.
 ) );
+
 
 
 
@@ -296,26 +299,173 @@ Kirki::add_field( 'rock', array(
  * Fields: Social Media
 */
 
-Kirki::add_field( 'rock', array(
-    'type'        => 'custom',
-    'settings'    => 'socia_media_links',
-    'label'       => __( 'Social Media Links', 'rock' ),
-    'description' => __( 'Links or usersname for various social media platforms.', 'rock' ),
-    'section'     => 'social_media',
-    'priority'    => 10,
-) );
+
 
 
 Kirki::add_field( 'wpseo_social', array(
     'type'        => 'text',
     'settings'    => 'facebook_site',
     'label'       => __( 'Facebook URL', 'rock' ),
-    'description' => __( 'The full URL of your Facebook Page or Profile.', 'wpseo_social' ),
     'section'     => 'social_media',
     'default'     => '',
     'priority'    => 20,
 ) );
 
+Kirki::add_field( 'rock', array(
+    'type'        => 'checkbox',
+    'settings'    => 'facebook_menu',
+    'label'       => __( 'Show in Social Menu', 'rock' ),
+    'section'     => 'social_media',
+    'default'     => '1',
+    'priority'    => 21,
+) );
+
+Kirki::add_field( 'wpseo_social', array(
+    'type'        => 'text',
+    'settings'    => 'twitter_site',
+    'label'       => __( 'Twitter Username', 'rock' ),
+    'description' => __( 'The username (without @) for Twitter.', 'wpseo_social' ),
+    'section'     => 'social_media',
+    'default'     => '',
+    'priority'    => 30,
+) );
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'checkbox',
+    'settings'    => 'twitter_menu',
+    'label'       => __( 'Show in Social Menu', 'rock' ),
+    'section'     => 'social_media',
+    'default'     => '1',
+    'priority'    => 31,
+) );
+
+Kirki::add_field( 'wpseo_social', array(
+    'type'        => 'text',
+    'settings'    => 'instagram_url',
+    'label'       => __( 'Instagram URL', 'rock' ),
+    'section'     => 'social_media',
+    'default'     => '',
+    'priority'    => 40,
+) );
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'checkbox',
+    'settings'    => 'instagram_menu',
+    'label'       => __( 'Show in Social Menu', 'rock' ),
+    'section'     => 'social_media',
+    'default'     => '1',
+    'priority'    => 41,
+) );
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'text',
+    'settings'    => 'snapchat_username',
+    'label'       => __( 'Snapchat Username', 'rock' ),
+    'section'     => 'social_media',
+    'default'     => '',
+    'priority'    => 50,
+) );
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'checkbox',
+    'settings'    => 'snapchat_menu',
+    'label'       => __( 'Show in Social Menu', 'rock' ),
+    'section'     => 'social_media',
+    'default'     => '1',
+    'priority'    => 51,
+) );
+
+Kirki::add_field( 'wpseo_social', array(
+    'type'        => 'text',
+    'settings'    => 'linkedin_url',
+    'label'       => __( 'LinkedIn URL', 'rock' ),
+    'section'     => 'social_media',
+    'default'     => '',
+    'priority'    => 60,
+) );
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'checkbox',
+    'settings'    => 'linkedin_menu',
+    'label'       => __( 'Show in Social Menu', 'rock' ),
+    'section'     => 'social_media',
+    'default'     => '1',
+    'priority'    => 61,
+) );
+
+Kirki::add_field( 'wpseo_social', array(
+    'type'        => 'text',
+    'settings'    => 'pinterest_url',
+    'label'       => __( 'Pinterest URL', 'rock' ),
+    'section'     => 'social_media',
+    'default'     => '',
+    'priority'    => 70,
+) );
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'checkbox',
+    'settings'    => 'pinterest_menu',
+    'label'       => __( 'Show in Social Menu', 'rock' ),
+    'section'     => 'social_media',
+    'default'     => '1',
+    'priority'    => 71,
+) );
+
+Kirki::add_field( 'wpseo_social', array(
+    'type'        => 'text',
+    'settings'    => 'googleplus_url',
+    'label'       => __( 'Google+ URL', 'rock' ),
+    'section'     => 'social_media',
+    'default'     => '',
+    'priority'    => 80,
+) );
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'checkbox',
+    'settings'    => 'googleplus_menu',
+    'label'       => __( 'Show in Social Menu', 'rock' ),
+    'section'     => 'social_media',
+    'default'     => '1',
+    'priority'    => 81,
+) );
+
+Kirki::add_field( 'wpseo_social', array(
+    'type'        => 'text',
+    'settings'    => 'youtube_url',
+    'label'       => __( 'YouTube URL', 'rock' ),
+    'section'     => 'social_media',
+    'default'     => '',
+    'priority'    => 90,
+) );
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'checkbox',
+    'settings'    => 'youtube_menu',
+    'label'       => __( 'Show in Social Menu', 'rock' ),
+    'section'     => 'social_media',
+    'default'     => '1',
+    'priority'    => 91,
+) );
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'text',
+    'settings'    => 'vimeo_url',
+    'label'       => __( 'Vimeo URL', 'rock' ),
+    'section'     => 'social_media',
+    'default'     => '',
+    'priority'    => 100,
+) );
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'checkbox',
+    'settings'    => 'vimeo_menu',
+    'label'       => __( 'Show in Social Menu', 'rock' ),
+    'section'     => 'social_media',
+    'default'     => '1',
+    'priority'    => 101,
+) );
+
+/*
 Kirki::add_field( 'rock', array(
     'type'        => 'custom',
     'settings'    => 'socia_media_menu',
@@ -328,9 +478,10 @@ Kirki::add_field( 'rock', array(
 Kirki::add_field( 'rock', array(
     'type'        => 'checkbox',
     'settings'    => 'facebook_menu',
-    'label'       => __( 'Show on Social Menu', 'rock' ),
+    'label'       => __( 'Facebook', 'rock' ),
     'section'     => 'social_media',
     'default'     => '1',
     'priority'    => 110,
 ) );
+*/
 
