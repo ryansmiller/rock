@@ -20,6 +20,10 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 body {
 	position: relative;
+	font-family: 
+		-apple-system, BlinkMacSystemFont, 
+		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+		"Helvetica Neue", sans-serif !important;
 }
 
 
@@ -43,7 +47,6 @@ body {
 }
 
 .navbar a {
-	font-family: "Proxima Nova Extra Condensed";
 	text-transform: uppercase;
 	font-weight: 300;
 	font-size: 1.5em;
@@ -108,6 +111,11 @@ body {
 	flex: 1 auto;
 	vertical-align: middle;
 	float: none !important;
+
+}
+
+.navbar-one-row-align-right nav {
+	text-align: right;
 }
 
 .navbar-one-row-align-right .navbar-nav {

@@ -42,7 +42,7 @@
 
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-primary" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
 
-				<h1 class="site-title navbar-brand" itemscope itemtype="https://schema.org/Organization"><a title="<?php bloginfo( 'name' ); ?> home page" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><span itemprop="name"><img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" height="<?php echo Kirki::get_option( 'rock', 'logo-height' ); ?>"</span></a></h1>
+				<h1 class="site-title navbar-brand" itemscope itemtype="https://schema.org/Organization"><a title="<?php bloginfo( 'name' ); ?> home page" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><span itemprop="name"><img src="<?php echo Kirki::get_option( 'rock', 'logo_image' ); ?>" height="<?php echo Kirki::get_option( 'rock', 'logo-height' ); ?>"</span></a></h1>
 
 			</div>
 

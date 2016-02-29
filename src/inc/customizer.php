@@ -11,9 +11,24 @@
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
 function rock_customize_register( $wp_customize ) {
-	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'blogname' )
+        -> transport    = 'postMessage';
+	
+    $wp_customize->get_setting( 'blogdescription' )
+        -> transport    = 'postMessage';
+	
+    $wp_customize->get_setting( 'header_textcolor' )
+        -> transport    = 'postMessage';
+    
+    $wp_customize->get_section( 'title_tagline' )
+        -> title        = 'Logo &amp; Title';
+    
+    $wp_customize->get_section( 'title_tagline' )
+        -> priority     = 10;
+    
+    $wp_customize->remove_control( 'blogname' );
+    $wp_customize->remove_control( 'blogdescription' );
+    $wp_customize->remove_control( 'display_header_text' );
 }
 add_action( 'customize_register', 'rock_customize_register' );
 
@@ -36,6 +51,16 @@ Kirki::add_config( 'rock', array(
 ) );
 
 
+Kirki::add_config( 'wpseo_social', array(
+    'capability'    => 'edit_theme_options',
+    'option_type'   => 'option',
+    'option_name'   => 'wpseo_social',
+) );
+
+
+
+
+
 
 
 /**
@@ -43,7 +68,7 @@ Kirki::add_config( 'rock', array(
 */
 
 Kirki::add_panel( 'header', array(
-    'priority'    => 10,
+    'priority'    => 30,
     'title'       => __( 'Header', 'textdomain' ),
     'description' => __( 'Settings for site header.', 'textdomain' ),
 ) );
@@ -75,6 +100,56 @@ Kirki::add_section( 'header_spacing', array(
     'theme_supports' => '', // Rarely needed.
 ) );
 
+/**
+ * Panels and Sections: Social Media
+*/
+
+Kirki::add_section( 'social_media', array(
+    'title'          => __( 'Social Media' ),
+    'description'    => __( 'Links to social media accounts.' ),
+    'panel'          => '', // Not typically needed.
+    'priority'       => 30,
+    'capability'     => 'edit_theme_options',
+    'theme_supports' => '', // Rarely needed.
+) );
+
+
+
+/**
+ * Fields: Title &amp; Logo
+*/
+
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'text',
+    'settings'    => 'blogname',
+    'label'       => __( 'Site Title', 'rock' ),
+    'description' => __( 'The Site Title is used wherever the title of the site appears.', 'rock' ),
+    'section'     => 'title_tagline',
+    'default'     => '',
+    'priority'    => 10,
+) );
+
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'text',
+    'settings'    => 'blogdescription',
+    'label'       => __( 'Tagline', 'rock' ),
+    'description' => __( 'The Tagline is used on some templates where applicable.', 'rock' ),
+    'section'     => 'title_tagline',
+    'default'     => '',
+    'priority'    => 20,
+) );
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'image',
+    'settings'    => 'logo_image',
+    'label'       => __( 'Logo Image', 'rock' ),
+    'description' => __( 'Upload a logo image to be used in the place of your site title.', 'rock' ),
+    'section'     => 'title_tagline',
+    'default'     => '',
+    'priority'    => 30,
+) );
 
 /**
  * Fields: Header
@@ -217,4 +292,45 @@ Kirki::add_field( 'rock', array(
 ) );
 
 
+/**
+ * Fields: Social Media
+*/
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'custom',
+    'settings'    => 'socia_media_links',
+    'label'       => __( 'Social Media Links', 'rock' ),
+    'description' => __( 'Links or usersname for various social media platforms.', 'rock' ),
+    'section'     => 'social_media',
+    'priority'    => 10,
+) );
+
+
+Kirki::add_field( 'wpseo_social', array(
+    'type'        => 'text',
+    'settings'    => 'facebook_site',
+    'label'       => __( 'Facebook URL', 'rock' ),
+    'description' => __( 'The full URL of your Facebook Page or Profile.', 'wpseo_social' ),
+    'section'     => 'social_media',
+    'default'     => '',
+    'priority'    => 20,
+) );
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'custom',
+    'settings'    => 'socia_media_menu',
+    'label'       => __( 'Social Media Menu', 'rock' ),
+    'description' => __( 'Display social links on site social media menu.', 'rock' ),
+    'section'     => 'social_media',
+    'priority'    => 100,
+) );
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'checkbox',
+    'settings'    => 'facebook_menu',
+    'label'       => __( 'Show on Social Menu', 'rock' ),
+    'section'     => 'social_media',
+    'default'     => '1',
+    'priority'    => 110,
+) );
 
