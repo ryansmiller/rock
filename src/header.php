@@ -27,14 +27,14 @@
 		<?php wp_head(); ?>
 	</head>
 
-<body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
+<body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage"  data-spy="scroll" data-target="#masthead">
 	<!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
 <div id="page" class="site">
 
-	<header id="masthead" class="navbar navbar-<?php echo Kirki::get_option( 'rock', 'header_layout' ); ?> navbar-<?php echo Kirki::get_option( 'rock', 'header_position' ); ?> " role="banner" itemscope itemtype="https://schema.org/WPHeader" style="background-color: rgba(<?php echo Kirki::get_option('rock','header_color'); ?>,<?php echo Kirki::get_option('rock','header_opacity');?>) !important;">
+	<header id="masthead" class="navbar navbar-<?php echo Kirki::get_option( 'rock', 'header_layout' ); ?> navbar-<?php echo Kirki::get_option( 'rock', 'header_position' ); ?> navbar-<?php echo Kirki::get_option( 'rock', 'header_link_color'); ?> " role="banner" itemscope itemtype="https://schema.org/WPHeader" style="background-color: rgba(<?php echo Kirki::get_option('rock','header_color'); ?>,<?php echo Kirki::get_option('rock','header_opacity'); ?>) !important; padding:<?php echo Kirki::get_option( 'rock', 'header-padding' ); ?>px 0 <?php echo Kirki::get_option( 'rock', 'header-padding' ); ?>px 0 !important;" >
 
 		<div class="<?php echo Kirki::get_option( 'rock', 'header_container' ); ?>">
 		
@@ -42,9 +42,18 @@
 
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-primary" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
 
-				<h1 class="site-title navbar-brand" itemscope itemtype="https://schema.org/Organization"><a title="<?php bloginfo( 'name' ); ?> home page" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><span itemprop="name"><?php bloginfo( 'name' ); ?></span></a></h1>
+				<h1 class="site-title navbar-brand" itemscope itemtype="https://schema.org/Organization"><a title="<?php bloginfo( 'name' ); ?> home page" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><span itemprop="name"><img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" height="<?php echo Kirki::get_option( 'rock', 'logo-height' ); ?>"</span></a></h1>
 
 			</div>
+
+			<style type="text/css">
+
+			.navbar-nav>li>a {
+				line-height: <?php echo Kirki::get_option( 'rock', 'logo-height' ); ?>px;
+			}
+
+
+			</style>
 
 			<nav id="nav-primary" class="collapse navbar-collapse" role="navigation" itemscope="" itemtype="https://schema.org/SiteNavigationElement">
 

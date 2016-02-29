@@ -66,6 +66,15 @@ Kirki::add_section( 'header_colors', array(
     'theme_supports' => '', // Rarely needed.
 ) );
 
+Kirki::add_section( 'header_spacing', array(
+    'title'          => __( 'Header Spacing' ),
+    'description'    => __( 'The spacing of your site header.' ),
+    'panel'          => 'header', // Not typically needed.
+    'priority'       => 30,
+    'capability'     => 'edit_theme_options',
+    'theme_supports' => '', // Rarely needed.
+) );
+
 
 /**
  * Fields: Header
@@ -138,6 +147,21 @@ Kirki::add_field( 'rock', array(
     'choices'     => array(
         '255,255,255'     => __( 'White', 'rock' ),
         '0,0,0' 		  => __( 'Black', 'rock' ),
+        'transparent'       => __( 'Transparent', 'rock'),
+    ),
+) );
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'radio',
+    'settings'    => 'header_link_color',
+    'label'       => __( 'Header Link Color', 'rock' ),
+    'description' => __( 'White or Black.', 'rock' ),
+    'section'     => 'header_colors',
+    'default'     => 'link-white',
+    'priority'    => 20,
+    'choices'     => array(
+        'link-white'     => __( 'White', 'rock' ),
+        'link-black'     => __( 'Black', 'rock' ),
     ),
 ) );
 
@@ -148,45 +172,49 @@ Kirki::add_field( 'rock', array(
     'description' => __( 'The level of transparency for the background color. 100 is fully opaque. 0 is fully transparent.', 'rock' ),
     'section'     => 'header_colors',
     'default'     => 1,
-    'priority'    => 20,
+    'priority'    => 30,
     'choices'     => array(
         'min'    => 0,
         'max'    => 1,
-        'step'   => 0.01,
+        'step'   => 0.05,
+    ),
+    'required'  => array(
+      array(
+        'setting'  => 'header_color',
+        'operator' => '!=',
+        'value'    => 'transparent',
+      ),
     ),
 ) );
 
 
-
 Kirki::add_field( 'rock', array(
-    'settings' => 'new-class',
-    'label'    => __( 'My custom control', 'rock' ),
-    'section'  => 'test',
-    'type'     => 'text',
-    'priority' => 10,
-    'default'  => 'ryan',
-) );
-
-Kirki::add_field( '', array(
-    'type'        => 'custom',
-    'settings'    => 'custom_demo',
-    'label'       => __( 'This is the label', 'kirki' ),
-    'description' => __( 'This is the control description', 'kirki' ),
-    'default'	  => __( '<img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" />', 'kirki' ),
-    'section'     => 'test',
-    'priority'    => 12,
+    'type'        => 'slider',
+    'settings'    => 'header-padding',
+    'label'       => __( 'Header Padding', 'rock' ),
+    'section'     => 'header_spacing',
+    'default'     => 0,
+    'priority'    => 10,
+    'choices'     => array(
+        'min'  => 0,
+        'max'  => 100,
+        'step' => 5,
+    ),
 ) );
 
 Kirki::add_field( 'rock', array(
-    'settings' => 'new-checkbox',
-    'label'    => __( 'My checkbox', 'rock' ),
-    'section'  => 'test',
-    'type'     => 'checkbox',
-    'priority' => 13,
-    'default'  => '1',
+    'type'        => 'slider',
+    'settings'    => 'logo-height',
+    'label'       => __( 'Logo Height', 'rock' ),
+    'section'     => 'header_spacing',
+    'default'     => 30,
+    'priority'    => 20,
+    'choices'     => array(
+        'min'  => 20,
+        'max'  => 100,
+        'step' => 1,
+    ),
 ) );
-
-
 
 
 

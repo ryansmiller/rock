@@ -18,6 +18,10 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 */
 
+body {
+	position: relative;
+}
+
 
 /*
  * Header: Navigation Layouts
@@ -27,6 +31,11 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 #masthead.navbar {
 	margin-bottom: 0;
 	border-radius: 0px;
+}
+
+.navbar-brand { 
+	height: auto !important; 
+	line-height: auto;
 }
 
 .navbar h1 {
@@ -61,6 +70,7 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 	color: #fff;
 }
 
+.navbar
 
 
 .navbar-one-row-align-left {}
@@ -70,10 +80,50 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 	margin-right: -15px
 }
 
-.navbar-one-row-align-right #nav-primary {
-	float: right !important;
-	margin-right: -15px
+.navbar-one-row-align-right>div {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	flex-direction: row;
+	-webkit-justify-content: center;
+	justify-content:center;
+	text-align: justify; 
+
 }
+
+
+.navbar-one-row-align-right:before,
+.navbar-one-row-align-right>div:before,
+.navbar-one-row-align-right .navbar-nav:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+
+.navbar-one-row-align-right .navbar-header,
+.navbar-one-row-align-right nav {
+	-webkit-flex: 1 auto;
+	flex: 1 auto;
+	vertical-align: middle;
+	float: none !important;
+}
+
+.navbar-one-row-align-right .navbar-nav {
+	float: none !important;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.navbar-one-row-align-right .navbar-nav>li {
+	float: none!important;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+
+
 
 
 
@@ -141,4 +191,25 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 }
 
 
-.navbar-background-opacity
+.navbar-link-white .nav a {
+	color: #fff;
+}
+
+.navbar-link-white .nav > li > a:hover,
+.navbar-link-white .nav > li > a:focus {
+  text-decoration: none;
+  background-color: #222;
+}
+
+.navbar-link-black .nav a {
+	color: #000;
+}
+
+
+.navbar-link-black .nav > li > a:hover,
+.navbar-link-black .nav > li > a:focus {
+  text-decoration: none;
+  background-color: #ddd;
+}
+
+
