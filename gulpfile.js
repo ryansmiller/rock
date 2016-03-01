@@ -86,13 +86,19 @@ gulp.task('copyBower', function() {
 	var jquery = gulp.src('./bower_components/jquery/dist/**/*.*')
 		.pipe(gulp.dest('./build/js/'));
 
+	var fontawesomeCSS = gulp.src('./bower_components/font-awesome/css/**/*.*')
+		.pipe(gulp.dest('./build/css/'));	
+
+	var fontawesomeFONT = gulp.src('./bower_components/font-awesome/fonts/**/*.*')
+		.pipe(gulp.dest('./build/fonts/'));		
+
 	var snapchatCSS = gulp.src('./bower_components/fa-snapchat/fa-snapchat.css')
 		.pipe(gulp.dest('./build/css/'));
 
 	var snapchatFONT = gulp.src('./bower_components/fa-snapchat/fonts/**/*.*')
 		.pipe(gulp.dest('./build/css/fonts/'));			
 
-	return merge (bootstrapCSS, bootstrapJS, jquery, snapchatCSS, snapchatFONT );
+	return merge (bootstrapCSS, bootstrapJS, jquery, fontawesomeCSS, fontawesomeFONT, snapchatCSS, snapchatFONT );
 
 });
 

@@ -81,7 +81,7 @@
 
 				<?php $wpseo_social = get_option('wpseo_social'); ?>
 
-				<?php get_template_part( 'menu-social-media' ); ?>
+				<?php get_template_part( 'template-parts/menu-social-media' ); ?>
 
 			</nav>
 
