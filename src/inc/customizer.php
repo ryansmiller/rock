@@ -316,7 +316,7 @@ Kirki::add_field( 'rock', array(
     'settings'    => 'facebook_menu',
     'label'       => __( 'Show in Social Menu', 'rock' ),
     'section'     => 'social_media',
-    'default'     => '1',
+    'default'     => '0',
     'priority'    => 21,
 ) );
 
@@ -335,7 +335,7 @@ Kirki::add_field( 'rock', array(
     'settings'    => 'twitter_menu',
     'label'       => __( 'Show in Social Menu', 'rock' ),
     'section'     => 'social_media',
-    'default'     => '1',
+    'default'     => '0',
     'priority'    => 31,
 ) );
 
@@ -353,7 +353,7 @@ Kirki::add_field( 'rock', array(
     'settings'    => 'instagram_menu',
     'label'       => __( 'Show in Social Menu', 'rock' ),
     'section'     => 'social_media',
-    'default'     => '1',
+    'default'     => '0',
     'priority'    => 41,
 ) );
 
@@ -371,7 +371,7 @@ Kirki::add_field( 'rock', array(
     'settings'    => 'snapchat_menu',
     'label'       => __( 'Show in Social Menu', 'rock' ),
     'section'     => 'social_media',
-    'default'     => '1',
+    'default'     => '0',
     'priority'    => 51,
 ) );
 
@@ -389,7 +389,7 @@ Kirki::add_field( 'rock', array(
     'settings'    => 'linkedin_menu',
     'label'       => __( 'Show in Social Menu', 'rock' ),
     'section'     => 'social_media',
-    'default'     => '1',
+    'default'     => '0',
     'priority'    => 61,
 ) );
 
@@ -407,13 +407,13 @@ Kirki::add_field( 'rock', array(
     'settings'    => 'pinterest_menu',
     'label'       => __( 'Show in Social Menu', 'rock' ),
     'section'     => 'social_media',
-    'default'     => '1',
+    'default'     => '0',
     'priority'    => 71,
 ) );
 
 Kirki::add_field( 'wpseo_social', array(
     'type'        => 'text',
-    'settings'    => 'googleplus_url',
+    'settings'    => 'google_plus_url',
     'label'       => __( 'Google+ URL', 'rock' ),
     'section'     => 'social_media',
     'default'     => '',
@@ -422,10 +422,10 @@ Kirki::add_field( 'wpseo_social', array(
 
 Kirki::add_field( 'rock', array(
     'type'        => 'checkbox',
-    'settings'    => 'googleplus_menu',
+    'settings'    => 'google_plus_menu',
     'label'       => __( 'Show in Social Menu', 'rock' ),
     'section'     => 'social_media',
-    'default'     => '1',
+    'default'     => '0',
     'priority'    => 81,
 ) );
 
@@ -443,7 +443,7 @@ Kirki::add_field( 'rock', array(
     'settings'    => 'youtube_menu',
     'label'       => __( 'Show in Social Menu', 'rock' ),
     'section'     => 'social_media',
-    'default'     => '1',
+    'default'     => '0',
     'priority'    => 91,
 ) );
 
@@ -461,7 +461,7 @@ Kirki::add_field( 'rock', array(
     'settings'    => 'vimeo_menu',
     'label'       => __( 'Show in Social Menu', 'rock' ),
     'section'     => 'social_media',
-    'default'     => '1',
+    'default'     => '0',
     'priority'    => 101,
 ) );
 

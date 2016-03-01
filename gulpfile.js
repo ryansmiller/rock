@@ -84,9 +84,15 @@ gulp.task('copyBower', function() {
 		.pipe(gulp.dest('./build/js/'));
 
 	var jquery = gulp.src('./bower_components/jquery/dist/**/*.*')
-		.pipe(gulp.dest('./build/js/'));	
+		.pipe(gulp.dest('./build/js/'));
 
-	return merge (bootstrapCSS, bootstrapJS);
+	var snapchatCSS = gulp.src('./bower_components/fa-snapchat/fa-snapchat.css')
+		.pipe(gulp.dest('./build/css/'));
+
+	var snapchatFONT = gulp.src('./bower_components/fa-snapchat/fonts/**/*.*')
+		.pipe(gulp.dest('./build/css/fonts/'));			
+
+	return merge (bootstrapCSS, bootstrapJS, jquery, snapchatCSS, snapchatFONT );
 
 });
 

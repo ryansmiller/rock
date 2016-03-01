@@ -50,6 +50,7 @@ function rock_setup() {
 	register_nav_menus( array(
 		'primary' 	=> esc_html__( 'Primary', 'rock' ),
 		'secondary' => esc_html__( 'Secondary', 'rock' ),
+
 	) );
 
 	/*
@@ -122,6 +123,8 @@ function rock_scripts() {
 	wp_enqueue_style( 'rock-style', get_stylesheet_uri() );
 
 	wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.6', 'all' );
+
+	wp_enqueue_style( 'snapchat', get_template_directory_uri() . '/css/fa-snapchat.css', array(), '0.1.2', 'all' );
 
 	wp_enqueue_script( 'jquery', get_template_directory_uri() . '/js/jquery.min.js', array(), '2.2.0', false );
 
