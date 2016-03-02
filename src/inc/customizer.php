@@ -26,6 +26,14 @@ function rock_customize_register( $wp_customize ) {
     $wp_customize->get_section( 'title_tagline' )
         -> priority     = 10;
     
+
+    $wp_customize->remove_section( 'header_image' );
+    $wp_customize->remove_section( 'background_image' );
+    $wp_customize->remove_panel( 'nav_menus' );
+    $wp_customize->remove_panel( 'widgets' );
+    $wp_customize->remove_section( 'static_front_page' );
+    $wp_customize->remove_panel( 'tribe_events_pro_customizer' );
+
     $wp_customize->remove_control( 'blogname' );
     $wp_customize->remove_control( 'blogdescription' );
     $wp_customize->remove_control( 'display_header_text' );
@@ -39,6 +47,8 @@ function rock_customize_preview_js() {
 	wp_enqueue_script( 'rock_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
 }
 add_action( 'customize_preview_init', 'rock_customize_preview_js' );
+
+
 
 
 
@@ -68,7 +78,7 @@ Kirki::add_config( 'wpseo_social', array(
 */
 
 Kirki::add_panel( 'header', array(
-    'priority'    => 30,
+    'priority'    => 20,
     'title'       => __( 'Header', 'textdomain' ),
     'description' => __( 'Settings for site header.', 'textdomain' ),
 ) );
@@ -110,7 +120,7 @@ Kirki::add_section( 'social_media', array(
     'title'          => __( 'Social Media' ),
     'description'    => __( 'Links to social media accounts.' ),
     'panel'          => '', // Not typically needed.
-    'priority'       => 10,
+    'priority'       => 30,
     'capability'     => 'edit_theme_options',
     'theme_supports' => '', // Rarely needed.
 ) );
@@ -167,12 +177,154 @@ Kirki::add_field( 'rock', array(
     'description' => __( 'Responsive fixed width or full-width container.', 'rock' ),
     'section'     => 'header_layout',
     'default'     => 'container',
-    'priority'    => 10,
+    'priority'    => 9,
     'choices'     => array(
         'container'   		=> __( 'Responsive Fixed Container', 'rock' ),
         'container-fluid' 	=> __( 'Full-width Container', 'rock' ),
         
     ),
+) );
+
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'custom',
+    'settings'    => 'logo_title',
+    'default'      => '<h3 style="text-transform: uppercase;">Logo</h3>',
+    'section'     => 'header_layout',
+    'priority'    => 10,
+) );
+
+
+Kirki::add_field( 'rock', array( 
+    'type'          => 'radio',
+    'settings'      => 'logo_align',
+    'label'         => __('Logo: Alignment', 'rock' ),
+    'section'       => 'header_layout',
+    'default'       => 'left',
+    'priority'      => 11,
+    'choices'       => array(
+        'left'      => __( 'Left Align', 'rock' ),
+        'center'    => __( 'Center Align ', 'rock' ),
+        'right'     => __( 'Right Align', 'rock' ),
+    ),
+) );
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'custom',
+    'settings'    => 'primary_nav_title',
+    'default'      => '<h3 style="text-transform: uppercase;">Primary Navigation</h3>',
+    'section'     => 'header_layout',
+    'priority'    => 12,
+) );
+
+Kirki::add_field( 'rock', array( 
+    'type'          => 'radio',
+    'settings'      => 'primary_nav_location',
+    'label'         => __('Primary Nav: Location', 'rock' ),
+    'section'       => 'header_layout',
+    'default'       => 'middle',
+    'priority'      => 13,
+    'choices'       => array(
+        'top'      => __( 'Top Row', 'rock' ),
+        'middle'    => __( 'Middle Row', 'rock' ),
+        'bottom'     => __( 'Bottom Row', 'rock' ),
+    ),
+) );
+
+Kirki::add_field( 'rock', array( 
+    'type'          => 'radio',
+    'settings'      => 'primary_nav_align',
+    'label'         => __('Primary Nav: Alignment', 'rock' ),
+    'section'       => 'header_layout',
+    'default'       => 'right',
+    'priority'      => 14,
+    'choices'       => array(
+        'left'      => __( 'Left Align', 'rock' ),
+        'center'    => __( 'Center Align', 'rock' ),
+        'right'     => __( 'Right Align', 'rock' ),
+    ),
+) );
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'switch',
+    'settings'    => 'social_nav_switch',
+    'label'       => __( 'Social Navigation: On / Off', 'rock' ),
+    'section'     => 'header_layout',
+    'default'     => '0',
+    'priority'    => 14,
+    'choices'     => array(
+        'on'  => __( 'On', 'kirki' ),
+        'off' => __( 'Off', 'kirki' ),
+    ),
+) );
+
+Kirki::add_field( 'rock', array( 
+    'type'          => 'radio',
+    'settings'      => 'social_nav_location',
+    'label'         => __('Social Navigation: Location', 'rock' ),
+    'section'       => 'header_layout',
+    'default'       => 'middle',
+    'priority'      => 15,
+    'choices'       => array(
+        'top'       => __( 'Top Row', 'rock' ),
+        'middle'    => __( 'Middle Row', 'rock' ),
+        'bottom'    => __( 'Bottom Row', 'rock' ),
+    ),
+    'required'  => array(
+      array(
+        'setting'  => 'social_nav_switch',
+        'operator' => '==',
+        'value'    => '1',
+      ),
+    ),
+) );
+
+Kirki::add_field( 'rock', array( 
+    'type'          => 'radio',
+    'settings'      => 'social_nav_align',
+    'label'         => __('Social Navigation: Alignment', 'rock' ),
+    'section'       => 'header_layout',
+    'default'       => 'right',
+    'priority'      => 16,
+    'choices'       => array(
+        'left'      => __( 'Left Align', 'rock' ),
+        'center'    => __( 'Center Align', 'rock' ),
+        'right'     => __( 'Right Align', 'rock' ),
+    ),
+    'required'  => array(
+      array(
+        'setting'  => 'social_nav_switch',
+        'operator' => '==',
+        'value'    => '1',
+      ),
+    ),
+) );
+
+/*
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'switch',
+    'settings'    => 'announcement_nav_switch',
+    'label'       => __( 'Announcement: On / Off', 'rock' ),
+    'description' => __( 'This turns on or off the ability to have a text announcement on the top row of the header.', 'rock' ),
+    'section'     => 'header_layout',
+    'default'     => '1',
+    'priority'    => 14,
+    'choices'     => array(
+        'on'  => __( 'On', 'kirki' ),
+        'off' => __( 'Off', 'kirki' ),
+    ),
+) );
+
+
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'editor',
+    'settings'    => 'announcement_nav_editor',
+    'label'       => __( 'Announcement Text', 'kirki-demo' ),
+    'section'     => 'header_layout',
+    'default'     => '',
+    'priority'    => 15,
 ) );
 
 
@@ -294,11 +446,21 @@ Kirki::add_field( 'rock', array(
     ),
 ) );
 
+*/
 
 /**
  * Fields: Social Media
 */
 
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'social_media',
+    'settings'    => 'test',
+    'label'       => __( 'Social List', 'rock' ),
+    'section'     => 'social_media',
+    'default'     => '',
+    'priority'    => 10,
+) );
 
 
 

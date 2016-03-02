@@ -32,7 +32,11 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
+<div class="builder-outer-container">
+
 <div id="page" class="site">
+
+<div class="builder-inner-container">
 
 	<header id="masthead" class="navbar navbar-<?php echo Kirki::get_option( 'rock', 'header_layout' ); ?> navbar-<?php echo Kirki::get_option( 'rock', 'header_position' ); ?> navbar-<?php echo Kirki::get_option( 'rock', 'header_link_color'); ?> " role="banner" itemscope itemtype="https://schema.org/WPHeader" style="background-color: rgba(<?php echo Kirki::get_option('rock','header_color'); ?>,<?php echo Kirki::get_option('rock','header_opacity'); ?>) !important; padding:<?php echo Kirki::get_option( 'rock', 'header-padding' ); ?>px 0 <?php echo Kirki::get_option( 'rock', 'header-padding' ); ?>px 0 !important;" >
 

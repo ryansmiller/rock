@@ -50,6 +50,7 @@ function rock_setup() {
 	register_nav_menus( array(
 		'primary' 	=> esc_html__( 'Primary', 'rock' ),
 		'secondary' => esc_html__( 'Secondary', 'rock' ),
+		
 
 	) );
 
@@ -116,6 +117,10 @@ function rock_widgets_init() {
 }
 add_action( 'widgets_init', 'rock_widgets_init' );
 
+
+
+
+
 /**
  * Enqueue scripts and styles.
  */
@@ -123,6 +128,8 @@ function rock_scripts() {
 	wp_enqueue_style( 'rock', get_stylesheet_uri() );
 
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.6', 'all' );
+
+	wp_deregister_style( 'font-awesome' );
 
 	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), '4.5.0', 'all' );
 
@@ -137,6 +144,17 @@ function rock_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'rock_scripts' );
+
+
+function rock_custom_wp_admin_style() {
+        wp_register_style( 'rock_wp_admin_css', get_template_directory_uri() . '/css/admin-style.css', false, '1.0.0' );
+        wp_enqueue_style( 'rock_wp_admin_css' );
+
+        wp_register_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', false, '4.5.0' );
+        wp_enqueue_style( 'font-awesome' );
+
+}
+add_action( 'admin_enqueue_scripts', 'rock_custom_wp_admin_style' );
 
 /**
  * Implement the Custom Header feature.
@@ -224,3 +242,5 @@ function rock_register_required_plugins() {
 
 	tgmpa( $plugins );
 }
+
+

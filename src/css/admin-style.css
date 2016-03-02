@@ -1,0 +1,228 @@
+/*
+Name: Rock - Admin Styles
+Author: Ryan Miller
+Description: Description
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: rock
+Tags:
+
+*/
+
+
+/*
+ * Customizer
+ */
+
+body {
+	/* font-family:	 -apple-system, BlinkMacSystemFont, 
+		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+		"Helvetica Neue", sans-serif !important; */
+}
+
+.customize-control input[type=tel], 
+.customize-control input[type=url], 
+.customize-control input[type=text], 
+.customize-control input[type=password], 
+.customize-control input[type=email], 
+.customize-control input[type=number], 
+.customize-control input[type=search] {
+    box-sizing: border-box;
+    position: relative;
+    background-color: #fff;
+    padding: 11px;
+    line-height: 22px;
+    height: 44px;
+    width: 100%;
+    color: #3e3e3e;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+ .wp-customizer .accordion-section {
+ 	border-bottom: none;
+ }
+
+.wp-customizer #customize-controls .customize-info {
+	border-top: none;
+	border-bottom: none;
+
+}
+
+.wp-customizer #customize-controls .customize-info .accordion-section-title {
+	background-color: transparent;
+	color:	#3e3e3e;
+}
+
+.wp-customizer .customize-panel-back, 
+.wp-customizer .customize-section-back,
+.customize-panel-back:focus, 
+.customize-panel-back:hover, 
+.customize-section-back:focus, 
+.customize-section-back:hover {
+	background: transparent;
+	border: none;
+	float: none;
+}
+
+.wp-customizer .customize-section-description-container {
+	margin-bottom: 0;
+}
+
+.wp-customizer #customize-controls .customize-info .customize-panel-description,
+.wp-customizer .customize-section-title {
+	background: transparent;
+	border-top: none;
+	border-bottom: none;
+	color:	#3e3e3e;
+}
+
+.wp-customizer #customize-theme-controls {
+	padding-top: 30px;
+}
+
+.wp-customizer .customize-control {
+	margin-bottom: 0px;
+	margin-top: 33px;
+}
+
+.wp-customizer #customize-controls .description {
+	font-weight: 400;
+}
+
+.wp-customizer #customize-controls #customize-theme-controls .accordion-section h3.accordion-section-title {
+	border-bottom: none;
+	padding: 0 30px;
+	line-height: 60px;
+	vertical-align: middle;
+}
+
+.wp-customizer #customize-theme-controls .accordion-section-content {
+	padding: 12px 30px;
+}
+
+.wp-customizer #customize-theme-controls h3.accordion-section-title {
+	background-color: transparent;
+	color:	#3e3e3e;
+	text-transform: uppercase;
+}
+
+
+{
+	font-size: 20px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.customize-control-title {
+	font-weight: 600;
+	text-transform: uppercase;
+	font-size: 14px;
+}
+
+.wp-customizer #customize-controls h3 {
+	font-size: 14px;
+}
+
+.wp-customizer #customize-controls .control-section .accordion-section-title:hover {
+	background-color: #e4e4e4 !important;
+}
+
+
+.wp-customizer #accordion-panel-nav_menus,
+.wp-customizer #accordion-panel-tribe_events_pro_customizer,
+.wp-customizer li#accordion-section-themes.accordion-section.control-section.control-section-themes,
+.wp-customizer #customize-theme-controls .accordion-section-title:after,
+#customize-controls .customize-section-title span.customize-action, 
+.control-section-themes .accordion-section-title span.customize-action {
+	display: none !important;
+}
+
+.wp-customizer .section-open .wp-full-overlay-sidebar {
+	width: 400px;
+}
+
+.wp-customizer .wp-full-overlay.expanded.section-open {
+	margin-left: 400px;
+}
+
+.wp-customizer .wp-full-overlay,
+.wp-customizer .wp-full-overlay-sidebar,
+.wp-customizer .wp-full-overlay-main {
+	background-color: #eee;
+	border-right: 0px;
+	-webkit-animation-iteration-count: once;
+    -moz-animation-iteration-count: once;
+    -o-animation-iteration-count: once;
+    animation-iteration-count: once;
+    -webkit-animation-duration: 1.0s;
+    -moz-animation-duration: 1.0s;
+    -o-animation-duration: 1.0s;
+    animation-duration: 1.0s;
+    -webkit-animation-timing-function: cubic-bezier(.645,.045,.355,1);
+    -moz-animation-timing-function: cubic-bezier(.645,.045,.355,1);
+    -o-animation-timing-function: cubic-bezier(.645,.045,.355,1);
+    animation-timing-function: cubic-bezier(.645,.045,.355,1);
+    -webkit-transition: opacity 1.0s cubic-bezier(.645,.045,.355,1) , padding 1.0s ease-in-out;
+    transition: opacity 1.0s cubic-bezier(.645,.045,.355,1) , padding 1.0s ease-in-out;
+}
+
+.wp-customizer #customize-preview {
+position: absolute;
+right: 0;
+padding: 20px;
+height: 100%;
+max-height: 100%;
+top: 0;
+box-sizing: border-box;
+}
+
+.wp-customizer #customize-preview iframe {
+	box-shadow: 0 0 5px rgba(0,0,0,.25);
+}
+
+
+.wp-customizer .customize-control-image .inner {
+	background-color: #fff;
+	padding: 20px 0;
+	line-height: 50px;
+	position: relative;
+	vertical-align: middle;
+}
+
+.wp-customizer .accordion-section .accordion-section-title:before {
+	display: inline;
+	font: normal normal normal 20px/44px FontAwesome;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+padding-right: 10px;
+vertical-align: middle;
+}
+
+
+.wp-customizer #accordion-section-title_tagline h3.accordion-section-title:before {
+	content: "\f179";
+}
+
+.wp-customizer #accordion-section-social_media h3.accordion-section-title:before {
+	content: "\f164";
+}
+
+
+.wp-customizer #accordion-panel-header h3.accordion-section-title:before {
+	content: "\f0c9";
+}
+
+.wp-customizer #accordion-section-colors h3.accordion-section-title:before {
+	content: "\f1fc";
+}
+
+.wp-customizer #accordion-section-title_tagline .customize-section-back:before {
+	content: "\f053\00a0\00a0\00a0\00a0 HOME";
+	font: normal 300 normal 12px/44px FontAwesome;
+}
+
+

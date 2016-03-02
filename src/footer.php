@@ -20,9 +20,15 @@
 			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'rock' ), 'rock', '<a href="http://underscores.me/" rel="designer">Ryan Miller</a>' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
+
+</div>
 </div><!-- #page -->
 
+</div>
+
 <?php wp_footer(); ?>
+
+
 
 </body>
 </html>

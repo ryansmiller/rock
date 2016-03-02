@@ -27,6 +27,10 @@ body {
 }
 
 
+.builder-inner-container {
+	background-color: #fff !important;
+}
+
 /*
  * Header: Navigation Layouts
  *
@@ -218,6 +222,106 @@ body {
 .navbar-link-black .nav > li > a:focus {
   text-decoration: none;
   background-color: #ddd;
+}
+
+
+/*
+* Page Builder 
+*/
+
+
+.fl-builder {
+	background-color: #eee;
+}
+
+.fl-builder-edit .builder-outer-container {
+
+
+background-color: #eee;
+box-sizing: border-box;
+right: 0;
+min-width: 0;
+top: 0;
+height: 100%;
+bottom: 0;
+left: 0;
+border-left: 0px;
+margin-left: 300px;
+}
+
+
+.fl-builder-edit .site {
+float: right;
+
+padding: 20px;
+height: 100%;
+max-height: 100%;
+top: 0;
+box-sizing: border-box;
+bottom: 0;
+right: 0;
+margin-top: -45px;
+width: 100%;
+}
+
+.fl-block-overlay-actions {
+	background-color: #212121;
+
+}
+
+.fl-block-overlay-actions i {
+	font-size: 25px !important;
+	line-height: 50px !important;
+	width: 50px !important;
+	height: 50px !important;
+}
+
+
+.fl-builder-edit .builder-inner-container {
+	box-shadow: 0 0 5px rgba(0,0,0,.25);
+}
+
+
+
+.fl-builder-bar {
+	width: 300px;
+}
+
+.fl-builder-bar-title {
+	display: none;
+}
+
+.fl-builder-bar-actions {
+	float: left;
+}
+
+.fl-builder-bar-content {
+	background-color: transparent;
+	border-bottom: none;
+	box-shadow: none;
+-moz-box-shadow: none;
+-webkit-box-shadow: none;
+}
+
+
+
+.fl-builder-edit .fl-builder-panel {
+	box-sizing: border-box;
+float: left;
+width: 300px;
+padding: 0;
+margin: 0;
+z-index: 10;
+top: 0;
+height: 100%;
+bottom: 0;
+left: 0 !important;
+display: block !important;
+}
+
+.fl-builder-blocks-section-content {
+	
+	color: #666;
 }
 
 
