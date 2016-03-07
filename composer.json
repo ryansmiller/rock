@@ -5,7 +5,7 @@
   	"require": {
     	"justintadlock/hybrid-core"		: "3.*",
     	"tgmpa/tgm-plugin-activation"	: "2.5.2",
-    	"aristath/kirki"				: "2.*"	
+    	"aristath/kirki"				: "dev-mastergu"	
   	},
   	"extra": {
         "installer-paths": {

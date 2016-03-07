@@ -38,56 +38,96 @@
 
 <div class="builder-inner-container">
 
-	<header id="masthead" class="navbar navbar-<?php echo Kirki::get_option( 'rock', 'header_layout' ); ?> navbar-<?php echo Kirki::get_option( 'rock', 'header_position' ); ?> navbar-<?php echo Kirki::get_option( 'rock', 'header_link_color'); ?> " role="banner" itemscope itemtype="https://schema.org/WPHeader" style="background-color: rgba(<?php echo Kirki::get_option('rock','header_color'); ?>,<?php echo Kirki::get_option('rock','header_opacity'); ?>) !important; padding:<?php echo Kirki::get_option( 'rock', 'header-padding' ); ?>px 0 <?php echo Kirki::get_option( 'rock', 'header-padding' ); ?>px 0 !important;" >
 
-		<div class="<?php echo Kirki::get_option( 'rock', 'header_container' ); ?>">
-		
-			<div class="navbar-header">
 
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-primary" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+	<header id="masthead" class="navbar navbar-<?php echo Kirki::get_option( 'rock', 'header_layout' ); ?> navbar-<?php echo Kirki::get_option( 'rock', 'header_position' ); ?> " role="banner" itemscope itemtype="https://schema.org/WPHeader" style="padding:<?php echo Kirki::get_option( 'rock', 'header-padding' ); ?>px 0 <?php echo Kirki::get_option( 'rock', 'header-padding' ); ?>px 0 !important;" >
 
-				<h1 class="site-title navbar-brand" itemscope itemtype="https://schema.org/Organization"><a title="<?php bloginfo( 'name' ); ?> home page" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><span itemprop="name"><img src="<?php echo Kirki::get_option( 'rock', 'logo_image' ); ?>" height="<?php echo Kirki::get_option( 'rock', 'logo-height' ); ?>"</span></a></h1>
+
+		<?php $nav_primary_location = get_theme_mod( 'nav_primary_location' ); ?>
+		<?php $nav_social_location = get_theme_mod( 'nav_social_location' ); ?>
+
+		<?php if (( $nav_primary_location == 'top' ) || ( $nav_social_location == 'top' )) { ?>
+
+		<div class="header-top <?php if ( $nav_primary_location == 'top' ) { ?>navbar-primary-position-top navbar-primary-align-<?php echo get_theme_mod( 'nav_primary_align' ); } elseif ( $nav_social_location == 'top' ) { ?>navbar-social-position-top navbar-primary-align-<?php echo get_theme_mod( 'nav_social_align' ); } else { ?>navbar-none<?php } ?>">
+
+			<div class="<?php echo Kirki::get_option( 'rock', 'header_container' ); ?>">
+
+				<?php if ( $nav_primary_location == 'top' ) { ?>
+				
+					<?php get_template_part( 'template-parts/nav-primary' ); ?>	
+
+				<?php } ?>
+
+				<?php if ( $nav_social_location == 'top' ) { ?>
+				
+					<?php get_template_part( 'template-parts/menu-social-media' ); ?>	
+
+				<?php } ?>
 
 			</div>
 
-			<style type="text/css">
+		</div>
 
-			.navbar-nav>li>a {
-				line-height: <?php echo Kirki::get_option( 'rock', 'logo-height' ); ?>px;
-			}
+		<?php } ?>
+
+		
+
+		<div class="header-middle logo-position-middle logo-align-<?php echo get_theme_mod('logo_align'); ?> <?php if ( $nav_primary_location == 'middle' ) { ?>navbar-primary-position-middle navbar-primary-align-<?php echo get_theme_mod( 'nav_primary_align' ); } else { ?>navbar-none<?php } ?>">
 
 
-			</style>
 
-			<nav id="nav-primary" class="collapse navbar-collapse" role="navigation" itemscope="" itemtype="https://schema.org/SiteNavigationElement">
+			<div class="<?php echo Kirki::get_option( 'rock', 'header_container' ); ?> ">
 
-				<?php wp_nav_menu( 
-					array( 
-						'theme_location' 	=> 'primary', 
-						'menu_id' 			=> 'primary-menu', 
-						'menu_class' 		=> 'nav navbar-nav', 
-						'container' 		=> 'ul',
-						'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-	            		'walker'            => new wp_bootstrap_navwalker() 
-					) 
-				); ?>
+			
 
-				<?php wp_nav_menu( 
-					array( 
-						'theme_location' 	=> 'secondary', 
-						'menu_id' 			=> 'secondary-menu', 
-						'menu_class' 		=> 'nav navbar-nav', 
-						'container' 		=> 'ul',
-						'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-	            		'walker'            => new wp_bootstrap_navwalker() 
-					) 
-				); ?>
+					<h1 class="site-title navbar-brand" itemscope itemtype="https://schema.org/Organization"><a title="<?php bloginfo( 'name' ); ?> home page" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><span itemprop="name"><img src="<?php echo Kirki::get_option( 'rock', 'logo_image' ); ?>" height="<?php echo get_theme_mod('logo-height'); ?>"</span></a></h1>
 
-				<?php $wpseo_social = get_option('wpseo_social'); ?>
+			
 
-				<?php get_template_part( 'template-parts/menu-social-media' ); ?>
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-primary" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+				
+		
+			
 
-			</nav>
+					<?php if ( $nav_primary_location == 'middle' ) { ?>
+					
+						<?php get_template_part( 'template-parts/nav-primary' ); ?>	
+
+					<?php } ?>
+
+					<?php if ( $nav_social_location == 'middle' ) { ?>
+				
+						<?php get_template_part( 'template-parts/menu-social-media' ); ?>	
+
+					<?php } ?>
+
+				</div>
+
+				<?php // $wpseo_social = get_option('wpseo_social'); ?>
+
+				
+
+			</div>
+
+		</div>
+
+		<div class="header-bottom">
+
+			<div class="<?php echo Kirki::get_option( 'rock', 'header_container' ); ?>">
+		
+				<?php if ( $nav_primary_location == 'bottom' ) { ?>
+				
+					<?php get_template_part( 'template-parts/nav-primary' ); ?>	
+
+				<?php } ?>
+
+				<?php if ( $nav_social_location == 'bottom' ) { ?>
+				
+					<?php get_template_part( 'template-parts/menu-social-media' ); ?>	
+
+				<?php } ?>
+
+			</div>
 
 		</div>
 

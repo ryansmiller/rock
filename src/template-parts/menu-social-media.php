@@ -9,6 +9,7 @@
 
 ?>
 
+<nav id="nav-social" class="collapse navbar-collapse" role="navigation" itemscope="" itemtype="https://schema.org/SiteNavigationElement">
 
 <ul id="social-menu" class="nav navbar-nav">
 	<?php if ( Kirki::get_option( 'rock', 'facebook_menu' ) == 1 ) { ?>
@@ -21,7 +22,7 @@
 		<li><a href="<?php echo $wpseo_social['instagram_site']; ?>"><i class="fa fa-instagram"></i></a></li>
 	
 	<?php } if ( Kirki::get_option( 'rock', 'snapchat_menu' ) == 1 ) { ?>
-		<li><a href="http://www.snapchat.com/add/<?php echo Kirki::get_option( 'rock', 'snapchat_username'); ?>"><i class="fa fa-snapchat fa-2x"></i></a></li>
+		<li><a href="http://www.snapchat.com/add/<?php echo Kirki::get_option( 'rock', 'snapchat_username'); ?>"><i class="fa fa-snapchat"></i></a></li>
 
 	<?php } if ( Kirki::get_option( 'rock', 'linkedin_menu' ) == 1 ) { ?>
 		<li><a href="<?php echo $wpseo_social['linkedin_site']; ?>"><i class="fa fa-linkedin"></i></a></li>
@@ -40,3 +41,5 @@
 	
 	<?php } ?>
 </ul>
+
+	</nav>

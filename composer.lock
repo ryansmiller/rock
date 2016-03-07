@@ -4,12 +4,12 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1a4484cd8f559547b5f09c573af34828",
-    "content-hash": "9945ff8811be44e2c1974eb7a7776ab3",
+    "hash": "2bf99d09f0dbcd0a77b98a064e1b7768",
+    "content-hash": "bbb0bb98130c104b5cf2218cbe5cd086",
     "packages": [
         {
             "name": "aristath/kirki",
-            "version": "2.1.0.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aristath/kirki.git",
@@ -245,7 +245,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "aristath/kirki": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

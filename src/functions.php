@@ -147,8 +147,8 @@ add_action( 'wp_enqueue_scripts', 'rock_scripts' );
 
 
 function rock_custom_wp_admin_style() {
-        wp_register_style( 'rock_wp_admin_css', get_template_directory_uri() . '/css/admin-style.css', false, '1.0.0' );
-        wp_enqueue_style( 'rock_wp_admin_css' );
+    /*    wp_register_style( 'rock_wp_admin_css', get_template_directory_uri() . '/css/admin-style.css', false, '1.0.0' );
+        wp_enqueue_style( 'rock_wp_admin_css' ); */
 
         wp_register_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', false, '4.5.0' );
         wp_enqueue_style( 'font-awesome' );

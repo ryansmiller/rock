@@ -18,13 +18,13 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 */
 
-body {
+/* body {
 	position: relative;
 	font-family: 
 		-apple-system, BlinkMacSystemFont, 
 		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
 		"Helvetica Neue", sans-serif !important;
-}
+} */
 
 
 .builder-inner-container {
@@ -41,14 +41,147 @@ body {
 	border-radius: 0px;
 }
 
+
+
+
+.header-middle h1,
+.header-middle nav {
+	
+}
+
 .navbar-brand { 
 	height: auto !important; 
 	line-height: auto;
 }
 
+.logo-align-left .navbar-brand,
+.navbar-primary-align-left nav,
+.navbar-social-align-left nav  {
+	float: left;
+}
+
+.logo-align-center.navbar-primary-position-middle .navbar-brand,
+.navbar-primary-align-center nav {
+	float: none;
+	display: inline-block;
+	position: absolute;
+	left: 50%;
+	-webkit-transform: translate(-50%, 0);
+	-moz-transform: translate(-50%, 0);
+	-ms-transform: translate(-50%, 0);
+	-o-transform: translate(-50%, 0);
+	transform: translate(-50%, 0);
+	text-align: center;
+}
+
+.logo-align-right .navbar-brand,
+.navbar-primary-align-right nav,
+.navbar-social-align-right nav {
+	float: right;
+}
+
+
+.logo-align-center,
+.navbar-align-center {
+	
+}
+
+
+.logo-align-center.navbar-none .navbar-brand {
+	text-align: center;
+	margin: 0 auto;
+	width: 100%;
+	position: relative;
+	float: none !important;
+}
+
+
+
 .navbar h1 {
 	margin: 0;
 }
+
+
+
+.header-top {
+	min-height: 30px;
+}
+
+
+.logo-align-center,
+.navbar-align-center {
+ position: relative;
+ text-align: center;
+}
+
+
+
+
+/*
+.navbar-nav {
+	float: none !important;
+	display: inline-block !important;
+}
+
+
+.nav>li {
+	display: inline-block !important;
+}
+
+.navbar-nav>li {
+	float: none !important;
+	display: inline-block;
+}
+
+header .row,
+.navbar-header {
+	width: 100%;
+
+}
+
+.navbar-header {
+	display: flex;
+    justify-content: space-between;
+}
+
+
+.navbar-header h1,
+.navbar-header nav {
+	width: 100%;
+}
+
+
+
+
+.nav-align-left,
+.logo-align-left {
+	text-align: left;
+	float: left;
+}
+
+.nav-align-center,
+.logo-align-center {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.nav-align-right,
+.logo-align-right {
+	text-align: right;
+	float: right;
+}
+
+#nav-primary.navbar-collapse.collapse {
+	display: inline-block !important;
+}
+
+.navbar-brand {
+	float: none !important;
+	display: inline-block;
+}
+
+
+
 
 .navbar a {
 	text-transform: uppercase;
@@ -224,6 +357,8 @@ body {
   background-color: #ddd;
 }
 
+*/
+
 
 /*
 * Page Builder 
@@ -285,7 +420,9 @@ width: 100%;
 
 .fl-builder-bar {
 	width: 300px;
+	
 }
+
 
 .fl-builder-bar-title {
 	display: none;
@@ -303,9 +440,17 @@ width: 100%;
 -webkit-box-shadow: none;
 }
 
+.fl-builder-panel-content {
+	padding: 20px;
+}
 
 
-.fl-builder-edit .fl-builder-panel {
+
+
+
+
+
+.fl-builder-panel {
 	box-sizing: border-box;
 float: left;
 width: 300px;
@@ -317,11 +462,92 @@ height: 100%;
 bottom: 0;
 left: 0 !important;
 display: block !important;
+background: transparent;
+border-left: none;
+bottom: 0;
+box-shadow: none;
+-moz-box-shadow: none;
+-webkit-box-shadow: none;
+overflow-y: hidden;
+font-family: "Open Sans" !important;
+}
+
+
+.fl-builder-blocks-section-title {
+	font-size: 14px;
+	text-transform: uppercase;
+	font-weight: 600 !important;
+	color: #212121 !important;
+	text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
 }
 
 .fl-builder-blocks-section-content {
-	
+	background-color: #fafafa;
 	color: #666;
 }
 
+.fl-builder-bar .fl-builder-button {
+	display: inline-block;
+	float: none;
+}
 
+.fl-builder-blocks-separator {
+	background: none;
+	padding-bottom: 30px;
+}
+
+.fl-builder-add-content-button {
+	display: none !important;
+}
+
+.fl-builder-bar-actions {
+	float: none;
+	width: 100%;
+}
+
+.fl-builder-done-button.fl-builder-button.fl-builder-button-primary {
+	float: right;
+}
+
+.fl-builder-blocks-section .fl-builder-blocks-section-title {
+	border-bottom: none;
+}
+
+
+.fl-builder .fl-builder-block .fl-builder-block-title:before {
+	display: inline;
+	font: normal normal normal 14px/22px FontAwesome;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	padding-right: 10px;
+	vertical-align: middle;
+}
+
+.fl-builder .fl-builder-block[data-type="audio"] .fl-builder-block-title:before {
+	content: "\f1c7";
+}
+.fl-builder .fl-builder-block[data-type="button"] .fl-builder-block-title:before {
+	content: "\f096";
+}
+.fl-builder .fl-builder-block[data-type="html"] .fl-builder-block-title:before {
+	content: "\f121";
+}
+.fl-builder .fl-builder-block[data-type="heading"] .fl-builder-block-title:before {
+	content: "\f1dc";
+}
+.fl-builder .fl-builder-block[data-type="photo"] .fl-builder-block-title:before {
+	content: "\f1c5";
+}
+.fl-builder .fl-builder-block[data-type="separator"] .fl-builder-block-title:before {
+content: "\f068";
+}
+
+.fl-builder .fl-builder-block[data-type="rich-text"] .fl-builder-block-title:before {
+content: "\f1dd";
+}
+.fl-builder .fl-builder-block[data-type="video"] .fl-builder-block-title:before {
+content: "\f1c8";
+}
