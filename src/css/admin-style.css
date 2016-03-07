@@ -13,13 +13,19 @@ Tags:
 
 /*
  * Customizer
- */
+*/
 
-body {
+
+.selectize-dropdown-content {
+	max-height: 300px !important;
+}
+
+
+
 	/* font-family:	 -apple-system, BlinkMacSystemFont, 
 		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-		"Helvetica Neue", sans-serif !important; */
-}
+		"Helvetica Neue", sans-serif !important; 
+
 
 .customize-control input[type=tel], 
 .customize-control input[type=url], 
@@ -225,4 +231,5 @@ vertical-align: middle;
 	font: normal 300 normal 12px/44px FontAwesome;
 }
 
+ */
 

@@ -60,6 +60,11 @@ Kirki::add_config( 'rock', array(
     'option_name'   => 'rock',
 ) );
 
+Kirki::add_config( 'rock_theme_mod', array(
+    'capability'    => 'edit_theme_options',
+    'option_type'   => 'theme_mod',
+    'option_name'   => 'rock_theme_mod',
+) );
 
 Kirki::add_config( 'wpseo_social', array(
     'capability'    => 'edit_theme_options',
@@ -101,29 +106,18 @@ Kirki::add_config( 'wpseo_social', array(
  *          - Font Size
  *          - Line Height
  *  2.  Header
- *      2a. Top Bar Layout
- *          - Layout
- *          - Column Layout
- *          - Text / Menu / Social Icons
- *      2b. Top Bar Style
- *          - Background Color
- *          - Background Opacity
- *          - Background Image
- *          - Text Color
- *          - Link Color
- *          - Hover Color
- *      2c. Header Layout
+ *      2a. Header Layout
  *          - Layout
  *          - Padding
  *          - Fixed Header
- *      2d. Header Style
+ *      2b. Header Style
  *          - Background Color
  *          - Background Opacity
  *          - Background Image
  *          - Text Color
  *          - Link Color
  *          - Hover Color
- *      2e. Header Logo
+ *      2c. Header Logo
  *          - Logo Type
  *          - Logo Text
  *          - Font Family
@@ -131,16 +125,67 @@ Kirki::add_config( 'wpseo_social', array(
  *          - Font Size
  *          - Logo Image (Regular)
  *          - Logo Image (Retina)
- *      2f. Nav Layout
+ *      2d. Nav Layout
  *          - Nav Item Spacing
  *          - Nav Search Icon
  *          - Mobile Nav Toggle
- *      2g. Nav Style
+ *      2e. Nav Style
  *          - Font Family
  *          - Font Weight
  *          - Font Format
- *          - Font Size      
- *  
+ *          - Font Size   
+ *      2f. Top Bar Layout
+ *          - Layout
+ *          - Column Layout
+ *          - Text / Menu / Social Icons
+ *      2g. Top Bar Style
+ *          - Background Color
+ *          - Background Opacity
+ *          - Background Image
+ *          - Text Color
+ *          - Link Color
+ *          - Hover Color   
+ *  3.  Content
+ *      3a. Content Background
+ *      3b. Blog Layout
+ *          - Sidebar Position
+ *          - Sidebar Size
+ *          - Sidebar Display
+ *          - Post Author
+ *          - Post Date
+ *          - Comment Count
+ *      3c. Archive Layout
+ *          - Show Full Text
+ *          - "Read More" Text
+ *          - Featured Image
+ *      3d. Post Layout
+ *          - Featured Image
+ *          - Post Categories
+ *          - Post Tags
+ *          - Prev / Next Post Links
+ *      3e. WooCommerce Layout
+ *          - Sidebar Position
+ *          - "Add to Cart" Button
+ *  4.  Footer
+ *      4a. Footer Widgets Layout
+ *          - Footer Widgets Display
+ *      4b. Footer Widgets Style
+ *      4c. Footer Layout
+ *          - Layout
+ *          - Column Layouts
+ *      4d. Footer Style
+ *      4e. Footer Parallax   
+ *  5.  Widgets
+ *  6.  Code
+ *      6a. CSS Code
+ *      6b. JavaScript Code
+ *      6c. Head Code
+ *      6d. Header Code
+ *      6e. Footer Code
+ *  7.  Settings
+ *      7a. Site Identity
+ *      7b. Static Front Page
+ *      7c. Social Links
 */
 
 
@@ -205,14 +250,14 @@ Kirki::add_panel( 'header', array(
     Kirki::add_section( 'header_top_bar_layout', array(
         'title'          => __( 'Top Bar: Layout' ),
         'panel'          => 'header',
-        'priority'       => 10,
+        'priority'       => 80,
         'capability'     => 'edit_theme_options',
     ) );
 
     Kirki::add_section( 'header_top_bar_style', array(
         'title'          => __( 'Top Bar: Style' ),
         'panel'          => 'header',
-        'priority'       => 20,
+        'priority'       => 90,
         'capability'     => 'edit_theme_options',
     ) );
 
@@ -658,26 +703,441 @@ Kirki::add_field( 'rock_theme_mod', array(
     ),
 ) );
 
+
+/**
+ * Fields: 2. Header > 1a. Header Layout
+*/
+
 Kirki::add_field( 'rock_theme_mod', array(
     'type'        => 'select',
-    'settings'    => 'general_headings_h3_text_transform',
-    'label'       => __( 'H3: Text Transform', 'rock' ),
-    'section'     => 'general_headings',
-    'priority'    => 34,
-    'default'     => 'uppercase',
+    'settings'    => 'header_layout',
+    'label'       => __( 'Layout', 'rock' ),
+    'section'     => 'header_layout',
+    'priority'    => 11,
+    'default'     => 'nav-right',
     'choices'     => array(
-        'none'          => __( 'None', 'rock' ),
-        'capitalize'    => __( 'Capitalize', 'rock' ),
-        'uppercase'     => __( 'Uppercase', 'rock' ),
-        'lowercase'     => __( 'Lowercase', 'rock' ),
-    ),
-    'output' => array(
-        array(
-            'element'  => 'h3',
-            'property' => 'text-transform',
-        ),
+        'nav-none'                  => __( 'None', 'rock' ),
+        'nav-bottom'                => __( 'Nav Bottom', 'rock' ),
+        'nav-right'                 => __( 'Nav Right', 'rock' ),
+        'nav-left'                  => __( 'Nav Left', 'rock' ),
+        'nav-centered'              => __( 'Nav Centered', 'rock' ),
+        'nav-centered-inline-logo'  => __( 'Nav Centered + Inline Logo', 'rock' ),
+        'nav-vertical-left'         => __( 'Nav Vertical Left', 'rock'),
+        'nav-vertical-right'        => __( 'Nav Vertical Right', 'rock' ),
     ),
 ) );
+
+Kirki::add_field( 'rock_theme_mod', array(
+    'type'        => 'slider',
+    'settings'    => 'header_padding',
+    'label'       => __( 'Padding', 'rock' ),
+    'section'     => 'header_layout',
+    'priority'    => 12,
+    'default'     => 30,
+    'choices'     => array(
+        'min'  => 0,
+        'max'  => 100,
+        'step' => 1,
+    ),
+    'required'  => array(
+        array(
+                'setting'  => 'header_layout',
+                'operator' => '!=',
+                'value'    => 'nav-none',
+            ),
+       
+        array(
+                'setting'  => 'header_layout',
+                'operator' => '!=',
+                'value'    => 'nav-vertical-left',
+            ),
+       
+        array(
+                'setting'  => 'header_layout',
+                'operator' => '!=',
+                'value'    => 'nav-vertical-right',
+            ),
+       ),
+) );
+
+Kirki::add_field( 'rock_theme_mod', array(
+    'type'        => 'select',
+    'settings'    => 'header_fixed',
+    'label'       => __( 'Fixed Header', 'rock' ),
+    'description' => __( 'Show a fixed header as the page is scrolled.', 'rock'),
+    'section'     => 'header_layout',
+    'priority'    => 13,
+    'default'     => 'header-fixed-fade-in',
+    'choices'     => array(
+        'header-fixed-disabled'     => __( 'Disabled', 'rock' ),
+        'header-fixed-fade-in'      => __( 'Fade In', 'rock' ),
+        'header-fixed-shrink'       => __( 'Shrink', 'rock' ),
+        'header-fixed'              => __( 'Fixed', 'rock' ),
+    ),
+) );
+
+Kirki::add_field( 'rock_theme_mod', array(
+    'type'        => 'select',
+    'settings'    => 'header_hide',
+    'label'       => __( 'Hide Header Until Scroll', 'rock' ),
+    'section'     => 'header_layout',
+    'priority'    => 14,
+    'default'     => 'header-hide-disabled',
+    'choices'     => array(
+        'header-hide-disabled'     => __( 'Disabled', 'rock' ),
+        'header-hide-enabled'  => __( 'Enabled', 'rock' ),
+    ),
+    'required'  => array(
+        array(
+                'setting'  => 'header_fixed',
+                'operator' => '==',
+                'value'    => 'header-fixed-disabled',
+            ),
+        ),
+
+) );
+
+Kirki::add_field( 'rock_theme_mod', array(
+    'type'        => 'slider',
+    'settings'    => 'header_scroll_distance',
+    'label'       => __( 'Scroll Distance', 'rock' ),
+    'section'     => 'header_layout',
+    'priority'    => 15,
+    'default'     => 200,
+    'choices'     => array(
+        'min'  => 50,
+        'max'  => 1000,
+        'step' => 1,
+    ),
+    'required'  => array(
+        array(
+                'setting'  => 'header_fixed',
+                'operator' => '==',
+                'value'    => 'header-fixed-disabled',
+            ),
+        ),
+) );
+
+Kirki::add_field( 'rock_theme_mod', array(
+    'type'        => 'slider',
+    'settings'    => 'header_vertical_nav_width',
+    'label'       => __( 'Vertical Nav Width', 'rock' ),
+    'section'     => 'header_layout',
+    'priority'    => 14,
+    'default'     => 230,
+    'choices'     => array(
+        'min'  => 200,
+        'max'  => 400,
+        'step' => 15,
+    ),
+    'required'  => array(
+        array(
+                'setting'  => 'header_layout',
+                'operator' => '!=',
+                'value'    => 'nav-none',
+            ),
+       
+        array(
+                'setting'  => 'header_layout',
+                'operator' => '!=',
+                'value'    => 'nav-bottom',
+            ),
+       
+        array(
+                'setting'  => 'header_layout',
+                'operator' => '!=',
+                'value'    => 'nav-right',
+            ),
+
+         array(
+                'setting'  => 'header_layout',
+                'operator' => '!=',
+                'value'    => 'nav-left',
+            ),
+          array(
+                'setting'  => 'header_layout',
+                'operator' => '!=',
+                'value'    => 'nav-centered',
+            ),
+           array(
+                'setting'  => 'header_layout',
+                'operator' => '!=',
+                'value'    => 'nav-centered-inline-logo',
+            ),
+       ),
+) );
+
+
+
+
+/**
+ * Fields: 2. Header > 2c. Header Logo
+*/
+
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'select',
+    'settings'    => 'header_logo_type',
+    'label'       => __( 'Logo Type', 'rock' ),
+    'section'     => 'header_logo',
+    'priority'    => 10,
+    'default'     => 'text',
+    'choices'     => array(
+        'text'      => __( 'Text', 'rock' ),
+        'image'     => __( 'Image', 'rock' ),
+    ),
+) );
+
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'text',
+    'settings'    => 'blogname',
+    'label'       => __( 'Site Title', 'rock' ),
+    'section'     => 'header_logo',
+    'default'     => '',
+    'priority'    => 11,
+    'required'  => array(
+        array(
+                'setting'  => 'header_logo_type',
+                'operator' => '==',
+                'value'    => 'text',
+            ),
+        ),
+) );
+
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'image',
+    'settings'    => 'logo_image',
+    'label'       => __( 'Logo Image (Regular)', 'rock' ),
+    'description' => __( 'Upload a logo image to be used in the place of your site title.', 'rock' ),
+    'section'     => 'header_logo',
+    'default'     => '',
+    'priority'    => 20,
+    'required'  => array(
+        array(
+                'setting'  => 'header_logo_type',
+                'operator' => '==',
+                'value'    => 'image',
+            ),
+        ),
+) );
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'image',
+    'settings'    => 'logo_image_retina',
+    'label'       => __( 'Logo Image (Retina)', 'rock' ),
+    'description' => __( 'Upload a logo image 2x the size of your regular sized logo. This will be used for Retina displays.', 'rock' ),
+    'section'     => 'header_logo',
+    'default'     => '',
+    'priority'    => 21,
+    'required'  => array(
+        array(
+                'setting'  => 'header_logo_type',
+                'operator' => '==',
+                'value'    => 'image',
+            ),
+        ),
+) );
+
+
+
+
+/**
+ * Fields: 2. Header > 2d. Nav Layout
+*/
+
+Kirki::add_field( 'rock_theme_mod', array(
+    'type'        => 'slider',
+    'settings'    => 'nav_item_spacing',
+    'label'       => __( 'Nav Item Spacing', 'rock' ),
+    'section'     => 'header_nav_layout',
+    'priority'    => 10,
+    'default'     => 15,
+    'choices'     => array(
+        'min'  => 5,
+        'max'  => 30,
+        'step' => 1,
+    ),
+) );
+
+Kirki::add_field( 'rock_theme_mod', array(
+    'type'        => 'select',
+    'settings'    => 'nav_search_icon',
+    'label'       => __( 'Nav Search Icon', 'rock' ),
+    'section'     => 'header_nav_layout',
+    'priority'    => 20,
+    'default'     => 'enabled',
+    'choices'     => array(
+        'enabled'      => __( 'Enabled', 'rock' ),
+        'disabled'     => __( 'Disabled', 'rock' ),
+    ),
+) );
+
+
+/**
+ * Fields: 2. Header > 2e. Top Bar Layout
+*/
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'select',
+    'settings'    => 'top_bar_layout',
+    'label'       => __( 'Top Bar Layout', 'rock' ),
+    'section'     => 'header_top_bar_layout',
+    'priority'    => 10,
+    'default'     => 'none',
+    'choices'     => array(
+        'none'          => __( 'None', 'rock' ),
+        'column-1'      => __( '1 Column', 'rock' ),
+        'column-2'    => __( '2 Columns', 'rock' ),
+    ),
+) );
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'custom',
+    'settings'    => 'top_bar_layout_column_1_hr',
+    'section'     => 'header_top_bar_layout',
+    'default'     => '<hr />',
+    'priority'    => 19,
+    'required'  => array(
+        array(
+                'setting'  => 'top_bar_layout',
+                'operator' => '!=',
+                'value'    => 'none',
+            ),
+        ),
+) );
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'select',
+    'settings'    => 'top_bar_layout_column_1',
+    'label'       => __( 'Column 1 Layout', 'rock' ),
+    'description' => __( 'Type of items in top menu. Social icons are set from in Customizer > Social. Menus can be created from Customizer > Menus.', 'rock' ),
+    'section'     => 'header_top_bar_layout',
+    'priority'    => 20,
+    'default'     => 'text',
+    'choices'     => array(
+        'text'          => __( 'Text', 'rock' ),
+        'text-social'   => __( 'Text and Social Icons', 'rock' ),
+        'menu'          => __( 'Menu', 'rock' ),
+        'menu-social'   => __( 'Menu and Social Icons', 'rock' ),
+        'social'        => __( 'Social Icons', 'rock' ),
+    ),
+    'required'  => array(
+        array(
+                'setting'  => 'top_bar_layout',
+                'operator' => '!=',
+                'value'    => 'none',
+            ),
+        ),
+
+) );
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'textarea',
+    'settings'    => 'top_bar_column_1_text',
+    'label'       => __( 'Column 1 Text', 'rock' ),
+    'section'     => 'header_top_bar_layout',
+    'priority'    => 21,
+    'default'     => __( '', 'rock' ),
+    'required'  => array(
+        array(
+                'setting'  => 'top_bar_layout',
+                'operator' => '!=',
+                'value'    => 'none',
+            ),
+        array(
+                'setting'  => 'top_bar_layout_column_1',
+                'operator' => '!=',
+                'value'    => 'menu',
+            ),
+
+        array(
+                'setting'  => 'top_bar_layout_column_1',
+                'operator' => '!=',
+                'value'    => 'menu-social',
+            ),
+        array(
+                'setting'  => 'top_bar_layout_column_1',
+                'operator' => '!=',
+                'value'    => 'social',
+            ),
+        ),
+) );
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'custom',
+    'settings'    => 'top_bar_layout_column_2_hr',
+    'section'     => 'header_top_bar_layout',
+    'default'     => '<hr />',
+    'priority'    => 29,
+    'required'  => array(
+        array(
+                'setting'  => 'top_bar_layout',
+                'operator' => '==',
+                'value'    => 'column-2',
+            ),
+        ),
+) );
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'select',
+    'settings'    => 'top_bar_layout_column_2',
+    'label'       => __( 'Column 2 Layout', 'rock' ),
+    'description' => __( 'Type of items in top menu. Social icons are set from in Customizer > Social. Menus can be created from Customizer > Menus.', 'rock' ),
+    'section'     => 'header_top_bar_layout',
+    'priority'    => 30,
+    'default'     => 'text',
+    'choices'     => array(
+        'text'          => __( 'Text', 'rock' ),
+        'text-social'   => __( 'Text and Social Icons', 'rock' ),
+        'menu'          => __( 'Menu', 'rock' ),
+        'menu-social'   => __( 'Menu and Social Icons', 'rock' ),
+        'social'        => __( 'Social Icons', 'rock' ),
+    ),
+    'required'  => array(
+        array(
+                'setting'  => 'top_bar_layout',
+                'operator' => '==',
+                'value'    => 'column-2',
+            ),
+        ),
+
+) );
+
+
+Kirki::add_field( 'rock', array(
+    'type'        => 'textarea',
+    'settings'    => 'top_bar_column_2_text',
+    'label'       => __( 'Column 2 Text', 'rock' ),
+    'section'     => 'header_top_bar_layout',
+    'priority'    => 31,
+    'default'     => __( '', 'rock' ),
+    'required'  => array(
+                array(
+                'setting'  => 'top_bar_layout',
+                'operator' => '==',
+                'value'    => 'column-2',
+            ),
+        array(
+                'setting'  => 'top_bar_layout_column_2',
+                'operator' => '!=',
+                'value'    => 'menu',
+            ),
+
+        array(
+                'setting'  => 'top_bar_layout_column_2',
+                'operator' => '!=',
+                'value'    => 'menu-social',
+            ),
+        array(
+                'setting'  => 'top_bar_layout_column_2',
+                'operator' => '!=',
+                'value'    => 'social',
+            ),
+        ),
+) );
+
 
 
 
@@ -750,18 +1210,10 @@ Kirki::add_section( 'social_media', array(
 
 /**
  * Fields: Title &amp; Logo
-*/
 
 
-Kirki::add_field( 'rock', array(
-    'type'        => 'text',
-    'settings'    => 'blogname',
-    'label'       => __( 'Site Title', 'rock' ),
-    'description' => __( 'The Site Title is used wherever the title of the site appears.', 'rock' ),
-    'section'     => 'title_tagline',
-    'default'     => '',
-    'priority'    => 10,
-) );
+
+
 
 
 Kirki::add_field( 'rock', array(
@@ -786,7 +1238,7 @@ Kirki::add_field( 'rock', array(
 
 /**
  * Fields: Header
-*/
+
 
 
 
@@ -1129,7 +1581,7 @@ Kirki::add_field( 'rock', array(
 
 /**
  * Fields: Social Media
-*/
+
 
 
 Kirki::add_field( 'rock', array(

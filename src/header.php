@@ -60,8 +60,7 @@
 
 				<?php if ( $nav_social_location == 'top' ) { ?>
 				
-					<?php get_template_part( 'template-parts/menu-social-media' ); ?>	
-
+					
 				<?php } ?>
 
 			</div>
